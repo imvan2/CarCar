@@ -9,6 +9,7 @@ from .views import (
     api_vehicle_model,
 )
 
+
 urlpatterns = [
     path(
         "automobiles/",
