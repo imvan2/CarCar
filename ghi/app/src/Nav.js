@@ -8,6 +8,8 @@ function Nav() {
         <NavLink className="navbar-brand" to="salesrep/">Sales Rep</NavLink>
         <NavLink className="navbar-brand" to="salescustomer/">Sales Customer</NavLink>
         <NavLink className="navbar-brand" to="salerecords/">Sale Records</NavLink>
+        <NavLink className="navbar-brand" to="salerecordslist/">Sale Records List</NavLink>
+        <NavLink className="navbar-brand" to="salesreprecordslist/">Sales Rep Records List</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

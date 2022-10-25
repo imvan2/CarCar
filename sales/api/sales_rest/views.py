@@ -31,12 +31,15 @@ class SalesCustomerListEncoder(ModelEncoder):
 
 class SaleRecordListEncoder(ModelEncoder):
     model = SaleRecord
-    properties = ["sales_price"]
-    encoders = {"sales_rep": SalesRepDetailEncoder(
-    ), "sales_automobile": AutomobileVODetailEncoder}
+    properties = ["sales_price", ]
+    encoders = {
+        "sales_rep": SalesRepDetailEncoder(),
+        "sales_automobile": AutomobileVODetailEncoder()
+    }
 
     def get_extra_data(self, o):
-        return {"sales_customer": o.sales_customer.name}
+        return {"sales_customer": o.sales_customer.name, "sales_rep_id": o.sales_rep.employee_id,
+                "sales_automobile": o.sales_automobile.vin, "sales_rep_name": o.sales_rep.name}
 
 
 @require_http_methods(["GET", "POST"])

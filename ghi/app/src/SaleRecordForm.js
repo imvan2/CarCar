@@ -89,6 +89,8 @@ async componentDidMount() {
     const data = await response1.json();
     console.log("Autos data: ", data);
 
+    // filter by sold automobiles ?
+
     this.setState({automobiles: data.autos});
 
   }
