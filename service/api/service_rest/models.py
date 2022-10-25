@@ -10,7 +10,7 @@ class Technician(models.Model):
     employee_number = models.PositiveIntegerField()
 
 class ServiceAppointment(models.Model):
-    vin = models.CharField(max_length=17, unique=True)
+    vin = models.CharField(max_length=17, null=True)
     owner = models.CharField(max_length=30)
     appointment_time = models.DateTimeField()
     technician = models.ForeignKey(
@@ -20,4 +20,3 @@ class ServiceAppointment(models.Model):
     )
     service_reason = models.CharField(max_length=200)
     if_finished = models.BooleanField(default=False, null=True)
-    vip = models.BooleanField(default=False, null=True)

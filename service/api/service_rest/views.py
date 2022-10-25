@@ -7,6 +7,13 @@ from common.json import ModelEncoder
 from .models import ServiceAppointment, AutomobileVO, Technician
 
 # Create your views here.
+
+class TechnicianListEncoder(ModelEncoder):
+    model = Technician
+    properties = [
+        "name",
+    ]
+    
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = ["import_href"]
@@ -17,10 +24,13 @@ class ServiceListEncoder(ModelEncoder):
         "vin", 
         "owner",
         "appointment_time",
-        "technician",
         "service_reason",
-        "vip",
         ]
+    encoders = { "technician": TechnicianListEncoder}
+    
+    def get_extra_data(self, o):
+        count = AutomobileVO.objects.filter(vin=o.vin).count()
+        return {"is_vip": count > 0}
 
 class ServiceDetailEncoder(ModelEncoder):
     model = ServiceAppointment
@@ -28,19 +38,15 @@ class ServiceDetailEncoder(ModelEncoder):
         "vin",
         "owner",
         "appointment_time",
-        "technician",
         "service_reason",
         "if_finished",
-        "vip",
     ]
-    encoders = { "automobile": AutomobileVOEncoder }
+    encoders = { "technician": TechnicianListEncoder}
     
-class TechnicianListEncoder(ModelEncoder):
-    model = Technician
-    properties = [
-        "name",
-    ]
-
+    def get_extra_data(self, o):
+        count = AutomobileVO.objects.filter(vin=o.vin).count()
+        return {"is_vip": count > 0}
+    
 class TechnicianDetailEncoder(ModelEncoder):
     model = Technician
     properties = [
@@ -77,14 +83,14 @@ def api_list_services(request):
     else:
         content = json.loads(request.body)
         
+        # try and except for the technician
         try:
-            vin_number = content["vin"]
-            vin = AutomobileVO.objects.get(vin=vin_number)
-            content["vin"] = vin
-            content["vip"] = True
-        except AutomobileVO.DoesNotExist:
-            content["vip"] = False
-        
+            number = content["technician"]
+            tech = Technician.objects.get(employee_number=number)
+            content["technician"] = tech
+        except Technician.DoesNotExist:
+            return JsonResponse({"message": "Invalid Technician ID"}, status=400)
+            
         service = ServiceAppointment.objects.create(**content)
         return JsonResponse(
             service,
