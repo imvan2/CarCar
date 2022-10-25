@@ -31,7 +31,6 @@ def poll():
         try:
             # Write your polling logic, here
             get_automobiles()
-            pass
         except Exception as e:
             print(e, file=sys.stderr)
         time.sleep(60)
