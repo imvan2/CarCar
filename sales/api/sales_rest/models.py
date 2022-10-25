@@ -10,13 +10,13 @@ class AutomobileVO(models.Model):
 
 class SalesRep(models.Model):
     name = models.CharField(max_length=200)
-    employee_id = models.PositiveSmallIntegerField()
+    employee_id = models.CharField(max_length=20)
 
 
 class SalesCustomer(models.Model):
     name = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
-    phone_number = models.PositiveSmallIntegerField()
+    phone_number = models.CharField(max_length=10, unique=True)
 
 
 class SaleRecord(models.Model):
