@@ -21,7 +21,6 @@ function SalesRepRecordList() {
       console.error("reps response not ok", response2);
     }
   }
-
   // getting the employee id value from the dropdown menu
   // and using it to send it to the records list and filter it
   function handleChange(event) {
@@ -33,14 +32,11 @@ function SalesRepRecordList() {
 
   async function loadRecords(id) {
     const response1 = await fetch("http://localhost:8090/api/salerecords/");
-    console.log(option);
 
     if (response1.ok) {
       let data1 = await response1.json();
       setRecords(data1.sale_records);
       const records = data1.sale_records;
-      console.log(" \n Records :", records);
-
       // creating temporary list to push filtered record list to
       // and then assign the setRepsRecords list to this temp value
       const temp = [];
@@ -64,9 +60,9 @@ function SalesRepRecordList() {
     <div id='sales-rep-record-list-parent'>
     <h1>Sales person history</h1>
       <div className="form-floating mb-3">
-    <div className="mb-3">
-    <select onChange={handleChange} required name="salesRep" className="form-select">
-      <option value="">Choose a sales rep</option>
+        <div className="mb-3">
+        <select onChange={handleChange} required name="salesRep" className="form-select">
+        <option value="">Choose a sales rep</option>
       {saleRep.map((rep, i) => {
         return (
           <option key={i} value={rep.employee_id}>
@@ -77,7 +73,6 @@ function SalesRepRecordList() {
     </select>
     </div>
     </div>
-
     <table className='table table-striped'>
       <thead>
       <tr>

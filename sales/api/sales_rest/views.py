@@ -11,7 +11,7 @@ from .models import AutomobileVO, SalesRep, SalesCustomer, SaleRecord
 
 class AutomobileVODetailEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin", "import_href"]
+    properties = ["vin", "import_href", "in_stock"]
 
 
 class SalesRepDetailEncoder(ModelEncoder):
@@ -32,10 +32,6 @@ class SalesCustomerListEncoder(ModelEncoder):
 class SaleRecordListEncoder(ModelEncoder):
     model = SaleRecord
     properties = ["sales_price", ]
-    encoders = {
-        "sales_rep": SalesRepDetailEncoder(),
-        "sales_automobile": AutomobileVODetailEncoder()
-    }
 
     def get_extra_data(self, o):
         return {"sales_customer": o.sales_customer.name, "sales_rep_id": o.sales_rep.employee_id,
@@ -80,6 +76,7 @@ def api_list_sale_records(request):
     # GET REQUEST
     if request.method == "GET":
         sale_records = SaleRecord.objects.all()
+
         return JsonResponse({"sale_records": sale_records}, encoder=SaleRecordListEncoder, safe=False,)
 
     # POST REQUEST
@@ -89,6 +86,7 @@ def api_list_sale_records(request):
         try:
             auto_vin = content["sales_automobile"]
             sales_automobile = AutomobileVO.objects.get(vin=auto_vin)
+
             content["sales_automobile"] = sales_automobile
         except AutomobileVO.DoesNotExist:
             return JsonResponse({"message": "Invalid VIN"}, status=400)

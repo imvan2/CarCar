@@ -81,19 +81,36 @@ class SaleRecordForm extends React.Component {
 
 // to select the automobiles
 async componentDidMount() {
+// to select the sale records to filter any sold cars:
+// step 1: select all sold cars from sales records
+const urlRecords = 'http://localhost:8090/api/salerecords/';
+
+const response4 = await fetch(urlRecords);
+
+if (response4.ok) {
+  const data = await response4.json();
+  const records = data.sale_records;
+
+  // step 2: creating an array with vins that were sold:
+  const soldVins = [];
+  records.map(record => {soldVins.push(record.sales_automobile)});
+
+  // step 3: fetching autos data for all autos:
   const url = 'http://localhost:8100/api/automobiles/';
 
   const response1 = await fetch(url);
 
   if (response1.ok) {
     const data = await response1.json();
-    console.log("Autos data: ", data);
+    const unfiltered = data.autos;
+    // step 4: filter autos based on presence of their vin in soldVins list:
+    const autos = unfiltered.filter(auto => !soldVins.includes(auto.vin))
 
-    // filter by sold automobiles ?
-
-    this.setState({automobiles: data.autos});
+    this.setState({automobiles: autos});
 
   }
+}
+
 
 //  to select the sales reps
   const urlRep = 'http://localhost:8090/api/salesreps/';
@@ -102,7 +119,6 @@ async componentDidMount() {
 
   if (response2.ok) {
     const data = await response2.json();
-    console.log("Reps data: ", data);
 
     this.setState({salesReps: data.sales_reps});
 
@@ -115,7 +131,6 @@ async componentDidMount() {
 
   if (response3.ok) {
     const data = await response3.json();
-    console.log("Customer data: ", data);
 
     this.setState({salesCustomers: data.sales_customers});
 

@@ -6,11 +6,12 @@ from django.db import models
 class AutomobileVO(models.Model):
     import_href = models.CharField(max_length=200, unique=True)
     vin = models.CharField(max_length=17, unique=True, null=True)
+    in_stock = models.BooleanField(null=True, blank=True, default=True)
 
 
 class SalesRep(models.Model):
     name = models.CharField(max_length=200)
-    employee_id = models.CharField(max_length=20)
+    employee_id = models.CharField(max_length=20, unique=True)
 
 
 class SalesCustomer(models.Model):
