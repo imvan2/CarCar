@@ -5,6 +5,10 @@ function Nav() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">CarCar</NavLink>
+        <NavLink className="navbar-brand" to="manufacturerslist/">Manufacturers List</NavLink>
+        <NavLink className="navbar-brand" to="manufacturers/new/">Create Manufacturer</NavLink>
+        <NavLink className="navbar-brand" to="modelslist/">Models List</NavLink>
+        <NavLink className="navbar-brand" to="models/new/">Create Model</NavLink>
         <NavLink className="navbar-brand" to="salesrep/">Sales Rep</NavLink>
         <NavLink className="navbar-brand" to="salescustomer/">Sales Customer</NavLink>
         <NavLink className="navbar-brand" to="salerecords/">Sale Records</NavLink>

@@ -5,6 +5,10 @@ import SalesCustomerForm from './SalesCustomerForm';
 import SaleRecordForm from './SaleRecordForm';
 import SaleRecordList from './SaleRecordList';
 import SalesRepRecordList from './SalesRepRecordList';
+import ListManufacturers from './ListManufacturers';
+import ListModels from './ListModels';
+import CreateManufacturer from './CreateManufacturer';
+import CreateModel from './CreateModel';
 import Nav from './Nav';
 
 function App() {
@@ -19,6 +23,10 @@ function App() {
           <Route path="salerecords/" element={<SaleRecordForm />} />
           <Route path="salerecordslist/" element={<SaleRecordList />} />
           <Route path="salesreprecordslist/" element={<SalesRepRecordList />} />
+          <Route path="manufacturerslist/" element={<ListManufacturers />} />
+          <Route path="manufacturers/new/" element={<CreateManufacturer />} />
+          <Route path="modelslist/" element={<ListModels />} />
+          <Route path="models/new/" element={<CreateModel />} />
         </Routes>
       </div>
     </BrowserRouter>
