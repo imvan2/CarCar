@@ -23,22 +23,21 @@ To start using the application, you must have Docker and Python installed. We re
 
 1. Go to GitLab and fork the git repo. Once forked, copy the path to git clone.
 
-2. Go to your terminal and enter:
-   ```git clone <<git clone path here>>```
+2. Go to your terminal and enter:  
+   ```git clone <<git clone path here>>```  
 
-3. Enter the new repo on your computer:
+3. Enter the new repo on your computer:  
    ```cd <<repo name here>>```
 
-4. make sure Docker is running, then run these commands in your terminal:
-   ```docker volume create beta-data```
-   ```docker-compose build```
-   ```docker-compose up```
+4. make sure Docker is running, then run these commands in your terminal:  
+   ```docker volume create beta-data```  
+   ```docker-compose build```  
+   ```docker-compose up```  
 
-5. Make migrations: you can access each terminal with the following commands:
-   ```docker exec -it <<container name here>> bash```
-
-   ```> > > python manage.py makemigrations```
-   ```> > > python manage.py migrate```
+5. Make migrations: you can access each terminal with the following commands:  
+   ```docker exec -it <<container name here>> bash```  
+   ```> > > python manage.py makemigrations```  
+   ```> > > python manage.py migrate```  
 
 6. Turn the two poller containers off and on again in Docker.
 
