@@ -19,7 +19,7 @@ function Nav() {
                 <NavLink className=" text-right nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Sale
                 </NavLink>
-                <ul className="dropdown-menu bg-success !important text-dark ms-2">
+                <ul className="dropdown-menu bg-success text-dark ms-2">
                   <li><NavLink className="nav-link ms-3" to="sales/records/list/">Sale Records List</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="sales/records/rep/list/">Sales Rep Records List</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="sales/rep/">Create Sales Rep</NavLink></li>
@@ -52,10 +52,6 @@ function Nav() {
                 </ul>
               </li>
             </ul>
-            <form className="d-flex mt-3" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
           </div>
         </div>
         </div>
