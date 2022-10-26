@@ -63,22 +63,22 @@ To start using the application, you must have Docker and Python installed. We re
 ![Offcanvas menu](/images/offcanvas_menu.png)
 
 - Sales forms:
-![An image of all of the sale forms](/images/sales_forms.png)
+![Sale forms](/images/sales_forms.png)
 
 - Sales list (sale records and sales reps):
-![]()
+![Sales lists](/images/)
 
 - Service forms:
-![An image of all of the service forms](/images/service_forms.png)
+![Service forms](/images/service_forms.png)
 
 -Service lists (services and service history)
-![]()
+![Service lists](/images/service_lists.png)
 
 - Inventory forms:
-![An image of all of the inventory forms](/images/inventory_forms.png)
+![Inventory forms](/images/inventory_forms.png)
 
 - Inventory list(manufacturers, models, automobiles):
-![]()
+![Inventory lists](/images/inventory_lists.png)
 
 ## Built with
 
@@ -88,3 +88,6 @@ Django (Python) - Backend
 RESTful APIs - Connecting frontend and backend
 To run servers: Docker-compose.yml
 Database: Postgres:14.2-bullseye
+
+## Domain Driven Design Diagram
+![Domain Driven Design Diagram](/images/CarCar%domain%diagram.png)
