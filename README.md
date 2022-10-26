@@ -13,13 +13,6 @@ The application runs with three separate microservices.
 
 The inventory can be used to keep track of manufacturers, models, and automobiles in stock.
 
-## Images
-![Landing page](/images/landing_page.png)
-![Offcanvas menu](/images/offcanvas_menu.png)
-![Create a new sales rep form](/images/sales_rep_form.png)
-![Create a new sales customer form](/images/sales_customer_form.png)
-![Create a new sale record form](/images/sales_record_form.png)
-
 The sales can be used to keep track of sales reps, sales customers, and sale records (with a detailed view per sales rep.
 
 The services can be used to keep track of technicians, VIP customers (who purchased their car from the dealership), and booked, cancelled or finished service appointments.
@@ -63,7 +56,29 @@ To start using the application, you must have Docker and Python installed. We re
 
 ## Images / screenshots
 
-[TBD]
+- Landing page:
+![Landing page](/images/landing_page.png)
+
+- Offcanvas menu:
+![Offcanvas menu](/images/offcanvas_menu.png)
+
+- Sales forms:
+![An image of all of the sale forms](\images\sales_forms.png)
+
+- Sales list (sale records and sales reps):
+![]()
+
+- Service forms:
+![An image of all of the service forms](\images\service_forms.png)
+
+-Service lists (services and service history)
+![]()
+
+- Inventory forms:
+![An image of all of the inventory forms](\images\inventory_forms.png)
+
+- Inventory list(manufacturers, models, automobiles):
+![]()
 
 ## Built with
 

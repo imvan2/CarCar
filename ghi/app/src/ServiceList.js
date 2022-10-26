@@ -44,6 +44,7 @@ function ServiceList(props) {
 
     return (
         <div>
+            <h1>Current Services</h1>
             <table className="table table-striped">
                 <thead>
                     <tr>

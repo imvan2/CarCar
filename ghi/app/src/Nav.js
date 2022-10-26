@@ -34,8 +34,8 @@ function Nav() {
                 <ul className="dropdown-menu bg-success text-dark ms-2">
                   <li><NavLink className="nav-link ms-3" to="/services/">Services List</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="/services/search/">Search Service History</NavLink></li>
-                  <li><NavLink className="nav-link ms-3" to="/services/new">Create a new service</NavLink></li>
-                  <li><NavLink className="nav-link ms-3" to="/technicians/new">Create a new technician</NavLink></li>
+                  <li><NavLink className="nav-link ms-3" to="/services/new">Create service</NavLink></li>
+                  <li><NavLink className="nav-link ms-3" to="/technicians/new">Create technician</NavLink></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
@@ -45,7 +45,7 @@ function Nav() {
                 <ul className="dropdown-menu bg-success text-dark ms-2">
                   <li><NavLink className="nav-link ms-3" to="manufacturers/list/">Manufacturers List</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="models/list/">Models List</NavLink></li>
-                  <li><NavLink className="nav-link ms-3" to="automobiles/list/">List Automobiles</NavLink></li>
+                  <li><NavLink className="nav-link ms-3" to="automobiles/list/">Automobiles List</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="models/new/">Create Model</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="manufacturers/new/">Create Manufacturer</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="/automobiles/new">Create a new car</NavLink></li>

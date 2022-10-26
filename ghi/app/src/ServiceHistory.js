@@ -40,7 +40,7 @@ class ServiceHistory extends React.Component {
         return (
             <div>
                 <input type="text" placeholder="Search VIN here" onChange={this.handleSearchChange} value={this.state.searchInput} />
-                <button onClick={this.handleSubmit}>Search</button>
+                <button className="my-4" onClick={this.handleSubmit}>Search</button>
                 <h1>Service Appointments</h1>
                 <table className="table table-striped">
                     <thead>
