@@ -15,12 +15,12 @@ The inventory can be used to keep track of manufacturers, models, and automobile
 
 Explain your models and integration with the inventory
 microservice, here.
-![Landing page](/path/image(3).png)
+![Landing page](image(3).png)
 
-![Offcanvas menu](/path/image(2).png)
-![Create a new sales rep form](/path/image(4).png)
-![Create a new sales customer form](/path/image(5).png)
-![Create a new sale record form](/path/image(6).png)
+![Offcanvas menu](image(2).png)
+![Create a new sales rep form](image(4).png)
+![Create a new sales customer form](image(5).png)
+![Create a new sale record form](image(6).png)
 The sales can be used to keep track of sales reps, sales customers, and sale records (with a detailed view per sales rep.
 
 The services can be used to keep track of technicians, VIP customers (who purchased their car from the dealership), and booked, cancelled or finished service appointments.
