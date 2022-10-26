@@ -90,3 +90,16 @@ Database: Postgres:14.2-bullseye
 
 ## Domain Driven Design Diagram
 ![Domain Driven Design Diagram](/images/CarCardomaindiagram.png)
+
+## Helpful commands
+
+### *Redo your database*
+1. Stop all containers
+2. Run  
+    ```docker container prune -f```  
+3. Run  
+    ```docker volume rm beta-data```  
+4. Run  
+    ```docker volume create beta-data```  
+5. Run  
+    ```docker-compose up```  
