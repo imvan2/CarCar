@@ -63,19 +63,19 @@ To start using the application, you must have Docker and Python installed. We re
 ![Offcanvas menu](/images/offcanvas_menu.png)
 
 - Sales forms:
-![An image of all of the sale forms](\images\sales_forms.png)
+![An image of all of the sale forms](/images/sales_forms.png)
 
 - Sales list (sale records and sales reps):
 ![]()
 
 - Service forms:
-![An image of all of the service forms](\images\service_forms.png)
+![An image of all of the service forms](/images/service_forms.png)
 
 -Service lists (services and service history)
 ![]()
 
 - Inventory forms:
-![An image of all of the inventory forms](\images\inventory_forms.png)
+![An image of all of the inventory forms](/images/inventory_forms.png)
 
 - Inventory list(manufacturers, models, automobiles):
 ![]()
