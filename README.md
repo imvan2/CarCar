@@ -14,11 +14,11 @@ The application runs with three separate microservices.
 The inventory can be used to keep track of manufacturers, models, and automobiles in stock.
 
 ## Images
-![Landing page](landing_page.png)
-![Offcanvas menu](offcanvas_menu.png)
-![Create a new sales rep form](image (4).png)
-![Create a new sales customer form](image (5).png)
-![Create a new sale record form](image (6).png)
+![Landing page](/images/landing_page.png)
+![Offcanvas menu](/images/offcanvas_menu.png)
+![Create a new sales rep form](/images/sales_rep_form.png)
+![Create a new sales customer form](/images/sales_customer_form.png)
+![Create a new sale record form](/images/sales_record_form.png)
 
 The sales can be used to keep track of sales reps, sales customers, and sale records (with a detailed view per sales rep.
 
