@@ -66,7 +66,7 @@ function ServiceList(props) {
                                 <td>{service.owner}</td>
                                 <td>{String(service.is_vip)}</td>
                                 <td>{service.appointment_time}</td>
-                                <td>{service.tech_name}</td>
+                                <td>{service.technician.name}</td>
                                 <td>{service.service_reason}</td>
                                 <td><button onClick={() => removeData(service.id)}>Cancel</button></td>
                                 <td><button onClick={() => changeStatus(service.id)}>Finish</button></td>

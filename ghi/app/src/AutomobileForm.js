@@ -42,14 +42,14 @@ class AutomobileForm extends React.Component {
     }
 
     async componentDidMount() {
-        const url = 'http://localhost:8100/api/automobiles/';
+        const url = 'http://localhost:8100/api/models/';
 
         const response = await fetch(url);
 
         if (response.ok) {
             const data = await response.json();
-            this.setState({ models: data.autos });
-            console.log(data.autos);
+            console.log("data:", data)
+            this.setState({ models: data.models });
         }
     }
 
@@ -115,7 +115,7 @@ class AutomobileForm extends React.Component {
                                     <option value="">Choose a model</option>
                                     {this.state.models.map(model => {
                                         return (
-                                            <option key={model.href} value={model.id}>{model.model.name}</option>
+                                            <option key={model.href} value={model.id}>{model.name}</option>
                                         )
                                     })}
                                 </select>
