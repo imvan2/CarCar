@@ -90,4 +90,4 @@ To run servers: Docker-compose.yml
 Database: Postgres:14.2-bullseye
 
 ## Domain Driven Design Diagram
-![Domain Driven Design Diagram](/images/CarCar%domain%diagram.png)
+![Domain Driven Design Diagram](/images/CarCardomaindiagram.png)
