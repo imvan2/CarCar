@@ -1,7 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
-import { format } from 'date-fns';
-git check
 
 function ServiceList(props) {
 
@@ -43,11 +41,6 @@ function ServiceList(props) {
             .then(() => fetchData());
     };
 
-    const formatter = (appointment_time) => {
-        const date = new Date(appointment_time).toLocaleDateString;
-        const time = new Date(appointment_time).toLocaleTimeString;
-        return date, time;
-    }
 
     return (
         <div>
@@ -57,7 +50,8 @@ function ServiceList(props) {
                         <th>VIN</th>
                         <th>Customer name</th>
                         <th>VIP</th>
-                        <th>Date & Time</th>
+                        <th>Date</th>
+                        <th>Time</th>
                         <th>Technician</th>
                         <th>Reason</th>
                         <th>ID</th>
@@ -70,7 +64,8 @@ function ServiceList(props) {
                                 <td>{service.vin}</td>
                                 <td>{service.owner}</td>
                                 <td>{String(service.is_vip)}</td>
-                                <td>{format(new Date(service.appointment_time))}</td>
+                                <td>{new Date(service.appointment_time).toLocaleDateString()}</td>
+                                <td>{new Date(service.appointment_time).toLocaleTimeString()}</td>
                                 <td>{service.technician.name}</td>
                                 <td>{service.service_reason}</td>
                                 <td><button onClick={() => removeData(service.id)}>Cancel</button></td>

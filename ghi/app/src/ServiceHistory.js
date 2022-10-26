@@ -48,6 +48,7 @@ class ServiceHistory extends React.Component {
                             <th>VIN</th>
                             <th>Customer name</th>
                             <th>Date</th>
+                            <th>Time</th>
                             <th>Technician</th>
                             <th>Reason</th>
                         </tr>
@@ -58,7 +59,8 @@ class ServiceHistory extends React.Component {
                                 <tr key={i}>
                                     <td>{service.vin}</td>
                                     <td>{service.owner}</td>
-                                    <td>{service.appointment_time}</td>
+                                    <td>{new Date(service.appointment_time).toLocaleDateString()}</td>
+                                    <td>{new Date(service.appointment_time).toLocaleTimeString()}</td>
                                     <td>{service.technician.name}</td>
                                     <td>{service.service_reason}</td>
                                 </tr>
