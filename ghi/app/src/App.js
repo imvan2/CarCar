@@ -4,6 +4,10 @@ import Nav from './Nav';
 
 import TechnicianForm from './TechnicianForm'
 import ServiceApptForm from './ServiceApptForm'
+import ServiceList from './ServiceList';
+import ServiceHistory from './ServiceHistory';
+import AutomobilesList from './AutomobilesList';
+import AutomobileForm from './AutomobileForm';
 
 function App() {
   return (
@@ -14,6 +18,10 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/technicians/new" element={<TechnicianForm />} />
           <Route path="/services/new" element={<ServiceApptForm />} />
+          <Route path="/services/" element={<ServiceList />} />
+          <Route path="/services/search/" element={<ServiceHistory />} />
+          <Route path="/automobiles/" element={<AutomobilesList />} />
+          <Route path="/automobiles/new" element={<AutomobileForm />} />
         </Routes>
       </div>
     </BrowserRouter>

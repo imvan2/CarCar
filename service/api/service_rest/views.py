@@ -26,12 +26,20 @@ class ServiceListEncoder(ModelEncoder):
         "owner",
         "appointment_time",
         "service_reason",
+        "if_finished",
+        "id",
         ]
-    encoders = { "technician": TechnicianListEncoder}
     
     def get_extra_data(self, o):
         count = AutomobileVO.objects.filter(vin=o.vin).count()
-        return {"is_vip": count > 0}
+        tech_name = o.technician.name
+        return {
+            "is_vip": count > 0,
+            "technicians": {
+                "name": tech_name}
+        }
+    
+
 
 class ServiceDetailEncoder(ModelEncoder):
     model = ServiceAppointment
@@ -41,12 +49,18 @@ class ServiceDetailEncoder(ModelEncoder):
         "appointment_time",
         "service_reason",
         "if_finished",
+        "id",
     ]
-    encoders = { "technician": TechnicianListEncoder}
     
     def get_extra_data(self, o):
         count = AutomobileVO.objects.filter(vin=o.vin).count()
-        return {"is_vip": count > 0}
+        tech_name = o.technician.name
+        tech_number = o.technician.employee_number
+        return {
+            "is_vip": count > 0,
+            "tech_name": tech_name,
+            "tech_number": tech_number
+            }
     
 class TechnicianDetailEncoder(ModelEncoder):
     model = Technician
@@ -83,7 +97,7 @@ def api_list_services(request):
         )
     else:
         content = json.loads(request.body)
-        
+        print("content:", content)
         # try and except for the technician
         try:
             number = content["technician"]
@@ -93,6 +107,36 @@ def api_list_services(request):
             return JsonResponse({"message": "Invalid Technician ID"}, status=400)
             
         service = ServiceAppointment.objects.create(**content)
+        return JsonResponse(
+            service,
+            encoder=ServiceDetailEncoder,
+            safe=False,
+        )
+
+@require_http_methods(["GET", "DELETE", "PUT"])
+def api_detail_service(request, pk):
+    if request.method == "GET":
+        service = ServiceAppointment.objects.get(id=pk)
+
+        return JsonResponse(
+            {"service": service},
+            encoder=ServiceDetailEncoder,
+        )
+    elif request.method == "DELETE":
+        count, _ = ServiceAppointment.objects.filter(id=pk).delete()
+        return JsonResponse({"deleted": count > 0})
+    else:
+        content = json.loads(request.body)
+        
+        # try:
+        #     number = content["technician"]
+        #     tech = Technician.objects.get(name=number)
+        #     content["tech_name"] = tech
+        # except:
+        #     return JsonResponse({"message": "Invalid Technician ID"}, status=400)
+        
+        ServiceAppointment.objects.filter(id=pk).update(**content)
+        service = ServiceAppointment.objects.get(id=pk)
         return JsonResponse(
             service,
             encoder=ServiceDetailEncoder,

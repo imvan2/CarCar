@@ -7,7 +7,7 @@ class ServiceForm extends React.Component {
         this.state = {
             vin: "",
             owner: "",
-            appointment_time: new Date(),
+            appointment_time: "",
             technicians: [],
             service_reason: "",
             if_finished: false,
@@ -17,6 +17,8 @@ class ServiceForm extends React.Component {
         this.handleOwnerChange = this.handleOwnerChange.bind(this);
         this.handleTechnicianChange = this.handleTechnicianChange.bind(this);
         this.handleServiceReasonChange = this.handleServiceReasonChange.bind(this);
+        this.handleAppointmentTimeChange = this.handleAppointmentTimeChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     // handleVinChange
     handleVinChange(event) {
@@ -30,8 +32,11 @@ class ServiceForm extends React.Component {
         this.setState({ owner: value });
     }
 
-    // handleAppointmentTimeChange
-
+    // handleAppointmentDateChange
+    handleAppointmentTimeChange(event) {
+        const value = event.target.value;
+        this.setState({ appointment_time: value })
+    }
 
     // handleTechnicianChange
     handleTechnicianChange(event) {
@@ -59,7 +64,38 @@ class ServiceForm extends React.Component {
     }
 
     // handleSubmit
-    
+    async handleSubmit(event) {
+        event.preventDefault();
+
+        const data = { ...this.state };
+        delete data.technicians;
+
+        const serviceUrl = "http://localhost:8080/api/services/";
+        const fetchConfig = {
+            method: "post",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        };
+
+        const response = await fetch(serviceUrl, fetchConfig);
+        if (response.ok) {
+            const newService = await response.json();
+            console.log(newService)
+        }
+
+        const cleared = {
+            vin: "",
+            owner: "",
+            appointment_time: "",
+            technicians: "",
+            service_reason: "",
+            if_finished: "",
+        }
+
+        this.setState(cleared);
+    }
 
 
     render() {
@@ -76,6 +112,10 @@ class ServiceForm extends React.Component {
                             <div className="form-floating mb-3">
                                 <input onChange={this.handleOwnerChange} placeholder="owner" value={this.state.owner} required type="text" name="owner" id="owner" className="form-control" />
                                 <label htmlFor="owner">Owner</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input onChange={this.handleAppointmentTimeChange} placeholder="time" value={this.state.appointment_time} required type="datetime-local" name="time" id="time" className="form-control" />
+                                <label htmlFor="time">Appointment Time</label>
                             </div>
                             <div className="mb-3">
                                 <select onChange={this.handleTechnicianChange} required name="technicians" id="technicians" className="form-select">
