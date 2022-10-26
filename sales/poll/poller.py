@@ -22,7 +22,6 @@ def get_automobiles():
         AutomobileVO.objects.update_or_create(
             import_href=auto["href"],
             vin=auto["vin"],
-            in_stock=True
         )
 
 

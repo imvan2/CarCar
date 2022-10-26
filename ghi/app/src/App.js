@@ -18,15 +18,22 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="salesrep/" element={<SalesRepForm />} />
-          <Route path="salescustomer/" element={<SalesCustomerForm />} />
-          <Route path="salerecords/" element={<SaleRecordForm />} />
-          <Route path="salerecordslist/" element={<SaleRecordList />} />
-          <Route path="salesreprecordslist/" element={<SalesRepRecordList />} />
-          <Route path="manufacturerslist/" element={<ListManufacturers />} />
-          <Route path="manufacturers/new/" element={<CreateManufacturer />} />
-          <Route path="modelslist/" element={<ListModels />} />
-          <Route path="models/new/" element={<CreateModel />} />
+
+          <Route path="sales">
+          <Route path="rep" element={<SalesRepForm />} />
+          <Route path="customer" element={<SalesCustomerForm />} />
+          <Route path="records/new" element={<SaleRecordForm />} />
+          <Route path="records/list" element={<SaleRecordList />} />
+          <Route path="records/rep/list" element={<SalesRepRecordList />} />
+          </Route>
+          <Route path="manufacturers">
+          <Route path="list" element={<ListManufacturers />} />
+          <Route path="new" element={<CreateManufacturer />} />
+          </Route>
+          <Route path="models">
+          <Route path="list" element={<ListModels />} />
+          <Route path="new" element={<CreateModel />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

@@ -91,7 +91,7 @@ async componentDidMount() {
             <form onSubmit={this.handleSubmit}>
               <div className="form-floating mb-3">
                 <input onChange={this.handleNameChange} placeholder="Name" value={this.state.name} required type="text" name="name" className="form-control"/>
-                <label htmlFor="name">Model Name</label>
+                <label htmlFor="name">Model name</label>
               </div>
               <div className="form-floating mb-3">
                 <input onChange={this.handlePictureChange} placeholder="Picture" value={this.state.picture} required type="url" name="picture" className="form-control"/>

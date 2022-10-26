@@ -37,7 +37,7 @@ function ListModels() {
             <tr key={i}>
             <td> { model.name } </td>
             <td> { model.manufacturer.name } </td>
-            <td> <img src={model.picture_url}/> </td>
+            <td> <img src={model.picture_url} alt="car model photo" width="150px" className="rounded mx-auto d-block"/> </td>
             </tr>
           )
         })}
