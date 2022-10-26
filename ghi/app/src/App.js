@@ -9,6 +9,7 @@ import ListManufacturers from './ListManufacturers';
 import ListModels from './ListModels';
 import CreateManufacturer from './CreateManufacturer';
 import CreateModel from './CreateModel';
+import ListAutomobiles from './ListAutomobiles';
 import Nav from './Nav';
 
 function App() {
@@ -34,6 +35,10 @@ function App() {
           <Route path="list" element={<ListModels />} />
           <Route path="new" element={<CreateModel />} />
           </Route>
+          <Route path="automobiles">
+          <Route path="list" element={<ListAutomobiles />} />
+          </Route>
+
         </Routes>
       </div>
     </BrowserRouter>
