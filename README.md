@@ -1,4 +1,4 @@
-# CarCar
+# CarCar :red_car:
 
 ## Team
 
@@ -70,7 +70,7 @@ To start using the application, you must have Docker and Python installed. We re
 - Service forms:
 ![Service forms](/images/service_forms.png)
 
--Service lists (services and service history)
+- Service lists (services and service history)
 ![Service lists](/images/service_lists.png)
 
 - Inventory forms:
@@ -81,12 +81,13 @@ To start using the application, you must have Docker and Python installed. We re
 
 ## Built with
 
-Bootstrap - Layout and formatting
-React (JSX) - Frontend
-Django (Python) - Backend
-RESTful APIs - Connecting frontend and backend
-To run servers: Docker-compose.yml
-Database: Postgres:14.2-bullseye
+**Bootstrap** - Layout and formatting  
+**React (JSX)** - Frontend  
+**Django (Python)** - Backend  
+**RESTful APIs** - Connecting frontend and backend  
+
+To run servers: Docker-compose.yml  
+Database: Postgres:14.2-bullseye  
 
 ## Domain Driven Design Diagram
 ![Domain Driven Design Diagram](/images/CarCardomaindiagram.png)
@@ -95,11 +96,9 @@ Database: Postgres:14.2-bullseye
 
 ### *Redo your database*
 1. Stop all containers
-2. Run  
-    ```docker container prune -f```  
-3. Run  
-    ```docker volume rm beta-data```  
-4. Run  
-    ```docker volume create beta-data```  
-5. Run  
-    ```docker-compose up```  
+2. Run ```docker container prune -f```  
+3. Run ```docker volume rm beta-data```  
+4. Run ```docker volume create beta-data```  
+5. Run ```docker-compose up```  
+
+> Thanks for reading! :smile:
