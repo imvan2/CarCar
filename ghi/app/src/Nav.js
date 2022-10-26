@@ -2,24 +2,24 @@ import { NavLink } from 'react-router-dom';
 
 function Nav() {
   return (
-<nav className="navbar navbar-dark bg-success">
-  <div className="container-fluid">
-    <NavLink className="navbar-brand" to="/">CarCar</NavLink>
-    <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="offcanvas offcanvas-end text-bg-dark" htmltabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div className="offcanvas-header bg-success text-white">
-        <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
-        <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div className="offcanvas-body bg-success">
-          <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li className="nav-item dropdown ">
+    <nav className="navbar navbar-dark bg-success">
+      <div className="container-fluid">
+        <NavLink className="navbar-brand" to="/">CarCar</NavLink>
+        <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="offcanvas offcanvas-end text-bg-dark" htmltabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div className="offcanvas-header bg-success text-white">
+            <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+            <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div className="offcanvas-body bg-success">
+            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li className="nav-item dropdown ">
                 <NavLink className=" text-right nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Sale
                 </NavLink>
-                <ul className="dropdown-menu bg-success !important text-dark ms-2">
+                <ul className="dropdown-menu bg-success text-dark ms-2">
                   <li><NavLink className="nav-link ms-3" to="sales/records/list/">Sale Records List</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="sales/records/rep/list/">Sales Rep Records List</NavLink></li>
                   <li><NavLink className="nav-link ms-3" to="sales/rep/">Create Sales Rep</NavLink></li>
@@ -52,13 +52,9 @@ function Nav() {
                 </ul>
               </li>
             </ul>
-            <form className="d-flex mt-3" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
           </div>
         </div>
-        </div>
+      </div>
     </nav>
   );
 }

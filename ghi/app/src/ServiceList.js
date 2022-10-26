@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
+import { format } from 'date-fns';
+git check
 
 function ServiceList(props) {
 
@@ -41,6 +43,12 @@ function ServiceList(props) {
             .then(() => fetchData());
     };
 
+    const formatter = (appointment_time) => {
+        const date = new Date(appointment_time).toLocaleDateString;
+        const time = new Date(appointment_time).toLocaleTimeString;
+        return date, time;
+    }
+
     return (
         <div>
             <table className="table table-striped">
@@ -62,7 +70,7 @@ function ServiceList(props) {
                                 <td>{service.vin}</td>
                                 <td>{service.owner}</td>
                                 <td>{String(service.is_vip)}</td>
-                                <td>{service.appointment_time}</td>
+                                <td>{format(new Date(service.appointment_time))}</td>
                                 <td>{service.technician.name}</td>
                                 <td>{service.service_reason}</td>
                                 <td><button onClick={() => removeData(service.id)}>Cancel</button></td>
