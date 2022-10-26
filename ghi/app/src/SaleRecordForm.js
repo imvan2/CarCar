@@ -146,12 +146,12 @@ if (response4.ok) {
             <h1>Create a new sale record</h1>
             <form onSubmit={this.handleSubmit}>
               <div className="form-floating mb-3">
-                <input onChange={this.handlePriceChange} placeholder="price" value={this.state.price} required type="number" id="price" name="price" className="form-control"/>
-                <label htmlFor="price">price</label>
+                <input onChange={this.handlePriceChange} placeholder="price" value={this.state.price} required type="number" min="500" step="100" name="price" className="form-control"/>
+                <label htmlFor="price">Sale price</label>
               </div>
               <div className="mb-3">
                 <select onChange={this.handleAutoChange} required id="automobile" name="automobile" className="form-select">
-                  <option value="">Choose a automobile</option>
+                  <option value="">Choose an automobile</option>
                   {this.state.automobiles.map(automobile => {
                     return (
                       <option key={automobile.vin} value={automobile.vin}>

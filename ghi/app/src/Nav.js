@@ -25,10 +25,13 @@ function Nav() {
             <NavLink className="nav-link" to="models/new/">Create Model</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="sales/rep/">Sales Rep</NavLink>
+            <NavLink className="nav-link" to="sales/rep/">Create Sales Rep</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="sales/customer/">Sales Customer</NavLink>
+            <NavLink className="nav-link" to="sales/customer/">Create Sales Customer</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="sales/records/new/">Create Sale Record</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="sales/records/list/">Sale Records List</NavLink>

@@ -11,7 +11,7 @@ from .models import AutomobileVO, SalesRep, SalesCustomer, SaleRecord
 
 class AutomobileVODetailEncoder(ModelEncoder):
     model = AutomobileVO
-    properties = ["vin", "import_href", "in_stock"]
+    properties = ["vin", "import_href"]
 
 
 class SalesRepDetailEncoder(ModelEncoder):
@@ -31,7 +31,7 @@ class SalesCustomerListEncoder(ModelEncoder):
 
 class SaleRecordListEncoder(ModelEncoder):
     model = SaleRecord
-    properties = ["sales_price", ]
+    properties = ["sales_price"]
 
     def get_extra_data(self, o):
         return {"sales_customer": o.sales_customer.name, "sales_rep_id": o.sales_rep.employee_id,
