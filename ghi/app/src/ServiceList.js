@@ -41,9 +41,6 @@ function ServiceList(props) {
             .then(() => fetchData());
     };
 
-    // need to add a filter here for cancelled or finished services
-
-
     return (
         <div>
             <table className="table table-striped">
