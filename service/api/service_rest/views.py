@@ -35,7 +35,7 @@ class ServiceListEncoder(ModelEncoder):
         tech_name = o.technician.name
         return {
             "is_vip": count > 0,
-            "technicians": {
+            "technician": {
                 "name": tech_name}
         }
     
@@ -58,9 +58,10 @@ class ServiceDetailEncoder(ModelEncoder):
         tech_number = o.technician.employee_number
         return {
             "is_vip": count > 0,
-            "tech_name": tech_name,
-            "tech_number": tech_number
-            }
+            "technician": {
+                "name": tech_name,
+                "number": tech_number}
+        }
     
 class TechnicianDetailEncoder(ModelEncoder):
     model = Technician

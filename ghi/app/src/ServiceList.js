@@ -76,7 +76,7 @@ function ServiceList(props) {
                 </tbody>
             </table>
             <button>
-                <NavLink className="nav-link" to="/shoes/new">Create New</NavLink>
+                <NavLink className="nav-link" to="/services/new">Create a new service</NavLink>
             </button>
         </div>
     )

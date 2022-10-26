@@ -25,15 +25,11 @@ class ServiceHistory extends React.Component {
 
         if (response.ok) {
             const data = await response.json();
-            // for (let service of data.services) {
-            //     console.log(service["vin"] === this.state.searchInput);
-            // }
             const filteredList = data.services.filter(
                 service => service["vin"] === this.state.searchInput);
-            // service => unfilteredList.includes(this.state.searchInput));
-            console.log(filteredList);
+
             this.setState({ filteredList: filteredList });
-            // console.log(this.state.filteredList);
+
         } else {
             console.log("Error fetching data.");
         };
@@ -63,7 +59,7 @@ class ServiceHistory extends React.Component {
                                     <td>{service.vin}</td>
                                     <td>{service.owner}</td>
                                     <td>{service.appointment_time}</td>
-                                    <td>{service.technicians.name}</td>
+                                    <td>{service.technician.name}</td>
                                     <td>{service.service_reason}</td>
                                 </tr>
                             )

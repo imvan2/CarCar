@@ -51,9 +51,8 @@ class ServiceForm extends React.Component {
         const response = await fetch(url);
         if (response.ok) {
             const data = await response.json();
-            console.log("data:", data)
+            console.log("data:", data.technicians)
             this.setState({ technicians: data.technicians });
-            console.log(this.state.technicians);
         }
     }
 
@@ -89,7 +88,7 @@ class ServiceForm extends React.Component {
             vin: "",
             owner: "",
             appointment_time: "",
-            technicians: "",
+            technician: "",
             service_reason: "",
             if_finished: "",
         }

@@ -13,7 +13,7 @@ class AutomobileForm extends React.Component {
         this.handleColorChange = this.handleColorChange.bind(this);
         this.handleYearChange = this.handleYearChange.bind(this);
         this.handleVinChange = this.handleVinChange.bind(this);
-        this.handleModelIdChange = this.handleModelIdChange.bind(this);
+        this.handleModelChange = this.handleModelChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -36,7 +36,7 @@ class AutomobileForm extends React.Component {
     }
 
     // handleModelIdChange
-    handleModelIdChange(event) {
+    handleModelChange(event) {
         const value = event.target.value;
         this.setState({ model: value });
     }
@@ -96,11 +96,11 @@ class AutomobileForm extends React.Component {
             <div className="row">
                 <div className="offset-3 col-6">
                     <div className="shadow p-4 mt-4">
-                        <h1>Create a new service appointment</h1>
+                        <h1>Create a new car</h1>
                         <form onSubmit={this.handleSubmit} id="create-location-form">
                             <div className="form-floating mb-3">
                                 <input onChange={this.handleColorChange} placeholder="color" value={this.state.color} required type="text" name="color" id="color" className="form-control" />
-                                <label htmlFor="vcolor">Color</label>
+                                <label htmlFor="color">Color</label>
                             </div>
                             <div className="form-floating mb-3">
                                 <input onChange={this.handleYearChange} placeholder="year" value={this.state.year} required type="text" name="year" id="year" className="form-control" />
@@ -111,7 +111,7 @@ class AutomobileForm extends React.Component {
                                 <label htmlFor="vin">Vin Number</label>
                             </div>
                             <div className="mb-3">
-                                <select onChange={this.handleModelIdChange} required name="model" className="form-select">
+                                <select onChange={this.handleModelChange} required name="model" id="model_id" className="form-select">
                                     <option value="">Choose a model</option>
                                     {this.state.models.map(model => {
                                         return (
