@@ -16,7 +16,6 @@ import TechnicianForm from './TechnicianForm'
 import ServiceApptForm from './ServiceApptForm'
 import ServiceList from './ServiceList';
 import ServiceHistory from './ServiceHistory';
-import AutomobilesList from './AutomobilesList';
 import AutomobileForm from './AutomobileForm';
 
 function App() {
@@ -30,7 +29,6 @@ function App() {
           <Route path="/services/new" element={<ServiceApptForm />} />
           <Route path="/services/" element={<ServiceList />} />
           <Route path="/services/search/" element={<ServiceHistory />} />
-          <Route path="/automobiles/" element={<AutomobilesList />} />
           <Route path="/automobiles/new" element={<AutomobileForm />} />
 
           <Route path="sales">

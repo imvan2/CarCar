@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
@@ -21,6 +22,8 @@ function ListManufacturers() {
   useEffect(() => {loadData();}, [] )
 
   return (
+    <div>
+      <h1>Manufacturers</h1>
     <table className='table table-striped'>
       <thead>
       <tr>
@@ -37,6 +40,10 @@ function ListManufacturers() {
         })}
       </tbody>
     </table>
+                <button>
+                <NavLink className="nav-link" to="/manufacturers/new">Create New</NavLink>
+            </button>
+            </div>
   )
 }
 
