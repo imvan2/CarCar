@@ -55,54 +55,54 @@ function SalesRepRecordList() {
   }
 
   // Create our number formatter.
-const formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
-});
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
 
-  useEffect(() => {loadRep();}, [] )
+  useEffect(() => { loadRep(); }, [])
 
   return (
     <div>
-    <h1>Sales person history</h1>
+      <h1>Sales person history</h1>
       <div className="form-floating mb-3">
         <div className="mb-3">
-        <select onChange={handleChange} required name="salesRep" className="form-select">
-        <option value="">Choose a sales rep</option>
-      {saleRep.map((rep, i) => {
-        return (
-          <option key={i} value={rep.employee_id}>
-            {rep.name}
-          </option>
-        );
-      })}
-    </select>
-    </div>
-    </div>
-    <table className='table table-striped'>
-      <thead>
-      <tr>
-        <th>Sale rep name</th>
-        <th>Sale customer name</th>
-        <th>Auto VIN</th>
-        <th>Sale price</th>
-      </tr>
-      </thead>
-      <tbody>
-				{repsRecords.map((record, i) => {
-          return (
-            <tr key={i}>
-            <td> { record.sales_rep_name } </td>
-            <td> { record.sales_customer } </td>
-            <td> { record.sales_automobile } </td>
-            <td> { formatter.format(record.sales_price) } </td>
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
+          <select onChange={handleChange} required name="salesRep" className="form-select">
+            <option value="">Choose a sales rep</option>
+            {saleRep.map((rep, i) => {
+              return (
+                <option key={i} value={rep.employee_id}>
+                  {rep.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+      </div>
+      <table className='table table-striped'>
+        <thead>
+          <tr>
+            <th>Sale rep name</th>
+            <th>Sale customer name</th>
+            <th>Auto VIN</th>
+            <th>Sale price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {repsRecords.map((record, i) => {
+            return (
+              <tr key={i}>
+                <td> {record.sales_rep_name} </td>
+                <td> {record.sales_customer} </td>
+                <td> {record.sales_automobile} </td>
+                <td> {formatter.format(record.sales_price)} </td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
     </div>
   )
 }

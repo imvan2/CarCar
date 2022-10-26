@@ -19,16 +19,8 @@ class SaleRecordForm extends React.Component {
 
   handlePriceChange(event) {
     // Create our number formatter.
-    const formatter = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    });
     const value = event.target.value;
-    const formattedValue = formatter.format(value);
-    console.log("formatted", formattedValue);
-    this.setState({ price: formattedValue })
+    this.setState({ price: value })
   }
 
   handleSalesRepChange(event) {
@@ -87,10 +79,6 @@ class SaleRecordForm extends React.Component {
     this.setState(cleared);
 
   }
-
-
-
-
   // to select the automobiles
   async componentDidMount() {
     // to select the sale records to filter any sold cars:
@@ -123,7 +111,6 @@ class SaleRecordForm extends React.Component {
       }
     }
 
-
     //  to select the sales reps
     const urlRep = 'http://localhost:8090/api/salesreps/';
 
@@ -150,6 +137,7 @@ class SaleRecordForm extends React.Component {
   }
 
   render() {
+
     return (
       <div className="row">
         <div className="offset-3 col-6">
@@ -201,7 +189,6 @@ class SaleRecordForm extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
