@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
@@ -43,6 +44,9 @@ function ListModels() {
         })}
       </tbody>
     </table>
+    <button>
+                <NavLink className="nav-link" to="/models/new">Create New</NavLink>
+            </button>
     </div>
   )
 }

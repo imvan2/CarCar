@@ -54,10 +54,18 @@ function SalesRepRecordList() {
     }
   }
 
+  // Create our number formatter.
+const formatter = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+});
+
   useEffect(() => {loadRep();}, [] )
 
   return (
-    <div id='sales-rep-record-list-parent'>
+    <div>
     <h1>Sales person history</h1>
       <div className="form-floating mb-3">
         <div className="mb-3">
@@ -89,7 +97,7 @@ function SalesRepRecordList() {
             <td> { record.sales_rep_name } </td>
             <td> { record.sales_customer } </td>
             <td> { record.sales_automobile } </td>
-            <td> { record.sales_price } </td>
+            <td> { formatter.format(record.sales_price) } </td>
             </tr>
           )
         })}
