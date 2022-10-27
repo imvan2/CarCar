@@ -41,12 +41,12 @@ To start using the application, you must have Docker and Python installed. We re
 3. Enter the new repo on your computer:
    `cd <<repo name here>>`
 
-4. make sure Docker is running, then run these commands in your terminal:
+4. make sure Docker is running, then run these commands in your terminal:  
    `docker volume create beta-data`  
    `docker-compose build`  
    `docker-compose up`  
 
-5. Make migrations: you can access each terminal with the following commands:
+5. Make migrations: you can access each terminal with the following commands:  
    `docker exec -it <<container name here>> bash`  
    `> > > python manage.py makemigrations`  
    `> > > python manage.py migrate`  
