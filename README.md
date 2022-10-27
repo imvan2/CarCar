@@ -137,7 +137,7 @@ POST sample data
 expected response data for each route  
 **Sales**:  
 *Create sale record*:
-http://localhost:8090/api/salerecords/
+localhost:8090/api/salerecords/
 POST:  
 ```{
 "sales_price": "15000",
@@ -157,7 +157,7 @@ Expected response:
 }
 ```
 *Create sales customer*:
-http://localhost:8090/api/salescustomers/
+localhost:8090/api/salescustomers/
 POST:  
 ```{
 "name": "Maria Ruth",
@@ -169,18 +169,20 @@ Expected response:
 
 **Services**
 *Create technician*
-http://localhost:8080/api/technicians/
+localhost:8080/api/technicians/  
 POST:  
 ```{
 	"name": "Kim",
 	"employee_number": "43515"
 }
-```  
+```
+
 Expected response:  
 ```{
    "name": "kim",
    "employee_number": 43515
-}```
+}
+```
 
 *List technicians*
 GET expected response:  
@@ -189,10 +191,11 @@ GET expected response:
 		{
 			"name": "Kim",
 			"employee_number": 43515
-		}```
+		}
+```
 
 *Create services*
-http://localhost:8080/api/services/
+localhost:8080/api/services/  
 POST:  
 ```{
 	"vin": "JSNGKJ2131",
@@ -201,7 +204,8 @@ POST:
 	"technician": "84655",
 	"service_reason": "oil change",
 	"if_finished": false
-}```
+}
+```
 Expected Response:  
 ```{
 	"vin": "JSNGKJ2131",
@@ -215,8 +219,8 @@ Expected Response:
 		"name": "Van",
 		"number": 84655
 	}
-}```
-
+}
+```
 
 *List services*
 GET expected response:  
@@ -233,12 +237,14 @@ GET expected response:
          "technician": {
             "name": "Van"
          }
-      }```
+      }
+```
 
 *Delete a service*
-http://localhost:8080/api/services/<int:pk>/
+localhost:8080/api/services/<int:pk>/  
 DELETE:
 Expected response:  
 ```{
 	"deleted": true
-}```
+}
+```
