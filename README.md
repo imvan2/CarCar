@@ -31,7 +31,7 @@ The **service** microservice can be used to keep track of technicians, VIP custo
 
 ## Get started / installation <a name="Get-started-/-installation"></a>
 
-To start using the application, you must have Docker and Python installed. We recommend a computer with 16Gb of RAM or more. You will need a GitLab account to access the repo.
+To start using the application, you must have Docker installed. We recommend a computer with 16Gb of RAM or more. You will need a GitLab account to access the repo.
 
 1. Go to GitLab and fork the git repo. Once forked, copy the path to git clone.
 
@@ -61,7 +61,7 @@ To start using the application, you must have Docker and Python installed. We re
 
 3. Start with inventory first. Create a manufacturer, then a model, then you can create an automobile.
 
-4. In sales, start by creating a sales rep, then a sales customer, then you can create a sale record. You can see past sale records on the sale record page. You can see the detail by sales rep on the sale rep record page.
+4. In sales, start by creating a sales rep, then a sales customer, then you can create a sale record. You can see past sale records on the sale record page. You can see the detail by sales rep on the sales rep record page.
 
 5. In services, start by creating a technician, then you can create a service appointment. If the appointment gets cancelled, you can remove it by clicking the Cancel button. If the appointment is done, you can log it by clicking the Finish button. You can look up past service appointments by the auto's vin number on the search service history page.
 
@@ -287,7 +287,7 @@ Expected response:
 
 ```
 {
-   "name": "kim",
+   "name": "Kim",
    "employee_number": 43515
 }
 ```
@@ -328,7 +328,7 @@ Expected Response:
 	"appointment_time": "2022-05-11",
 	"service_reason": "oil change",
 	"if_finished": false,
-	"id": 10,
+	"id": 1,
 	"is_vip": true,
 	"technician": {
 		"name": "Van",
@@ -358,7 +358,7 @@ GET expected response:
 ```
 
 _Delete a service_:
-http://localhost:8080/api/services/<int:pk>/
+http://localhost:8080/api/services/:id/
 DELETE:
 Expected response:
 
