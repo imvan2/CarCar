@@ -119,14 +119,6 @@ Database: Postgres:14.2-bullseye
       - localhost:8080/api/services/
       - localhost:8080/api/services/<int:pk>/
 
-2. CRUD routes in Insomnia:
-POST sample data
-expected response data for each route  
-**Sales**:  
-*Create sale record*:
-localhost:8090/api/salerecords/
-POST:  
-```{
 ## Design details [TBD]
 
 1. Urls and ports for each microservice
