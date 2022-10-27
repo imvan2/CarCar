@@ -41,19 +41,6 @@ To start using the application, you must have Docker and Python installed. We re
 
 6. Turn the two poller containers off and on again in Docker.
 
-## Helpful paths [TBD]
-
-1. Urls and ports for each microservice
-2. CRUD routes
-   Insomnia routes
-   POST sample data
-   expected response data for each route
-   Models named and described
-3. Identify Value Objects
-   why they're needed
-   how they're implemented
-4. Add to diagram: bounded contexts / highlight VO
-
 ## Usage
 
 1. Go to localhost:3000 in your browser to view the webpage. The menu is an offcanvas type. You will find it in the right upper corner of the screen.
@@ -140,6 +127,106 @@ expected response data for each route
 localhost:8090/api/salerecords/
 POST:  
 ```{
+## Design details [TBD]
+
+1. Urls and ports for each microservice
+   **Sales**:
+
+   - port 8090
+     urls:
+   - localhost:8090/api/salesreps/
+   - localhost:8090/api/salescustomers/
+   - localhost:8090/api/salerecords/
+
+2. CRUD routes in Insomnia:
+   **Sales**:
+
+1- _Create sales rep_:
+http://localhost:8090/api/salesreps/
+POST:
+
+```
+{
+	"name": "Kim Bassinger",
+	"employee_id": "301"
+}
+```
+
+Expected response:
+
+```
+{
+	"name": "Kim Bassinger",
+	"employee_id": "301"
+}
+```
+
+_List sales reps_:
+http://localhost:8090/api/salesreps/
+GET request with expected response:
+
+```
+{
+	"sales_reps": [
+		{
+			"name": "Bob Ross",
+			"employee_id": "2"
+		},
+		{
+			"name": "Kim Bassinger",
+			"employee_id": "301"
+		}
+	]
+}
+```
+
+2- _Create sales customer_:
+http://localhost:8090/api/salescustomers/
+POST:
+
+```
+{
+  "name": "Maria Ruth",
+  "address": "123 A Street Los Angeles CA 90017",
+  "phone_number": "0004567890"
+}
+```
+
+Expected response:
+
+```
+{
+	"name": "Maria Ruth",
+	"address": "123 A Street Los Angeles CA 90017",
+	"phone_number": "0004567890"
+}
+```
+
+_List sales customers_
+http://localhost:8090/api/salescustomers/
+GET request with expected response:
+
+```
+{
+	"sales_customers": [
+		{
+			"name": "Babe Ruth",
+			"phone_number": "1234567890"
+		},
+		{
+			"name": "Maria Ruth",
+			"phone_number": "0004567890"
+		}
+	]
+}
+```
+
+3- _Create sale record_:
+http://localhost:8090/api/salerecords/
+POST:
+
+```
+{
 "sales_price": "15000",
 "sales_customer": "456790123",
 "sales_rep": "3",
@@ -272,3 +359,39 @@ GET expected response:
 		}
 ```
 
+Expected response:
+
+```
+{
+"sales_price": "15000",
+"sales_customer": "Martha Stuart",
+"sales_rep_id": "3",
+"sales_automobile": "1C3CC5FB2AN120161",
+"sales_rep_name": "Mary Stuart"
+}
+```
+
+_List sale records_:
+http://localhost:8090/api/salerecords/
+GET request with expected response:
+
+```
+{
+	"sale_records": [
+		{
+			"sales_price": 10000,
+			"sales_customer": "Babe Ruth",
+			"sales_rep_id": "2",
+			"sales_automobile": "1C3CC5FB2AN120174",
+			"sales_rep_name": "Bob Ross"
+		},
+		{
+			"sales_price": 15000,
+			"sales_customer": "Martha Stuart",
+			"sales_rep_id": "3",
+			"sales_automobile": "1C3CC5FB2AN120161",
+			"sales_rep_name": "Mary Stuart"
+		}
+	]
+}
+```
