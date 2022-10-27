@@ -30,14 +30,14 @@ To start using the application, you must have Docker and Python installed. We re
    `cd <<repo name here>>`
 
 4. make sure Docker is running, then run these commands in your terminal:
-   `docker volume create beta-data`
-   `docker-compose build`
-   `docker-compose up`
+   `docker volume create beta-data`  
+   `docker-compose build`  
+   `docker-compose up`  
 
 5. Make migrations: you can access each terminal with the following commands:
-   `docker exec -it <<container name here>> bash`
-   `> > > python manage.py makemigrations`
-   `> > > python manage.py migrate`
+   `docker exec -it <<container name here>> bash`  
+   `> > > python manage.py makemigrations`  
+   `> > > python manage.py migrate`  
 
 6. Turn the two poller containers off and on again in Docker.
 
@@ -84,12 +84,12 @@ To start using the application, you must have Docker and Python installed. We re
 
 ## Built with
 
-**Bootstrap** - Layout and formatting
-**React (JSX)** - Frontend
-**Django (Python)** - Backend
-**RESTful APIs** - Connecting frontend and backend
+**Bootstrap** - Layout and formatting  
+**React (JSX)** - Frontend  
+**Django (Python)** - Backend  
+**RESTful APIs** - Connecting frontend and backend  
 
-To run servers: Docker-compose.yml
+To run servers: Docker-compose.yml  
 Database: Postgres:14.2-bullseye
 
 ## Domain Driven Design Diagram
@@ -105,8 +105,6 @@ Database: Postgres:14.2-bullseye
 3. Run `docker volume rm beta-data`
 4. Run `docker volume create beta-data`
 5. Run `docker-compose up`
-
-> Thanks for reading! :smile:
 
 ## Design details
 
@@ -544,3 +542,5 @@ Getting a list of automobiles returns a dictionary with the key "autos" set to a
   ]
 }
 ```
+
+> Thanks for reading! :smile:
