@@ -110,15 +110,16 @@ Database: Postgres:14.2-bullseye
 
 ## Design details [TBD]
 
-**Sales**:
-Action | Method | URL
------------- | ------------- | -------------
-Create sales rep | POST | http://localhost:8090/api/salesreps/
-List sales reps | GET | http://localhost:8090/api/salesreps/
-Create sales customer | POST | http://localhost:8090/api/salescustomers/
-List sales customers | GET | http://localhost:8090/api/salescustomers/
-Create sale record | POST | http://localhost:8090/api/salerecords/
-List sale records | GET | http://localhost:8090/api/salerecords/
+### _Sales_:
+
+| Action                | Method | URL                                       |
+| --------------------- | ------ | ----------------------------------------- |
+| Create sales rep      | POST   | http://localhost:8090/api/salesreps/      |
+| List sales reps       | GET    | http://localhost:8090/api/salesreps/      |
+| Create sales customer | POST   | http://localhost:8090/api/salescustomers/ |
+| List sales customers  | GET    | http://localhost:8090/api/salescustomers/ |
+| Create sale record    | POST   | http://localhost:8090/api/salerecords/    |
+| List sale records     | GET    | http://localhost:8090/api/salerecords/    |
 
 1- _Create sales rep_:
 http://localhost:8090/api/salesreps/
@@ -249,16 +250,17 @@ GET request with expected response:
 }
 ```
 
-**Services**
-Action | Method | URL
------------- | ------------- | -------------
-_List services_ | GET | http://localhost:8080/api/services/
-_Create services_ | POST | http://localhost:8080/api/services/
-_Get a specific service_ | GET | http://localhost:8080/api/services/:id/
-_Update a specific service_ | PUT | http://localhost:8080/api/services/:id/
-_Delete a service_ | DELETE | http://localhost:8080/api/services/:id/
-_List technicians_ | GET | http://localhost:8080/api/technicians/
-_Create technician_ | POST | http://localhost:8080/api/technicians/
+### _Services_
+
+| Action                      | Method | URL                                     |
+| --------------------------- | ------ | --------------------------------------- |
+| _List services_             | GET    | http://localhost:8080/api/services/     |
+| _Create services_           | POST   | http://localhost:8080/api/services/     |
+| _Get a specific service_    | GET    | http://localhost:8080/api/services/:id/ |
+| _Update a specific service_ | PUT    | http://localhost:8080/api/services/:id/ |
+| _Delete a service_          | DELETE | http://localhost:8080/api/services/:id/ |
+| _List technicians_          | GET    | http://localhost:8080/api/technicians/  |
+| _Create technician_         | POST   | http://localhost:8080/api/technicians/  |
 
 1 - _Create technician_:
 http://localhost:8080/api/technicians/
@@ -355,6 +357,8 @@ Expected response:
 	"deleted": true
 }
 ```
+
+### _Inventory_
 
 **Manufacturers**
 Action | Method | URL
