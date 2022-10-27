@@ -1,11 +1,23 @@
 # CarCar :red_car:
 
-## Team
+# Table of Contents
+1. [Team](#Team)
+2. [Features](#Features)
+3. [Get started / installation](#Get-started-/-installation)
+4. [Usage](#Usage)
+5. [Images / screenshots](#Images-/-screenshots)
+6. [Built with](#Built-with)
+7. [Domain Driven Design Diagram](#Domain-Driven-Design-Diagram)
+8. [Helpful commands](#Helpful-commands)
+9. [Design details](#Design-details)
+
+
+## Team <a name="Team"></a>
 
 - Van Tu - Service microservice
 - Kim Geraghty - Sales microservice
 
-## Features
+## Features <a name="Features"></a>
 
 CarCar is an application for managing an automobile dealership. It allows the user to enter and save data relevant to their inventory, their sales, and their service center.
 
@@ -17,7 +29,7 @@ The **sales** microservice can be used to keep track of sales reps, sales custom
 
 The **service** microservice can be used to keep track of technicians, VIP customers (who purchased their car from the dealership), and booked, cancelled or finished service appointments.
 
-## Get started / installation
+## Get started / installation <a name="Get-started-/-installation"></a>
 
 To start using the application, you must have Docker and Python installed. We recommend a computer with 16Gb of RAM or more. You will need a GitLab account to access the repo.
 
@@ -29,19 +41,19 @@ To start using the application, you must have Docker and Python installed. We re
 3. Enter the new repo on your computer:
    `cd <<repo name here>>`
 
-4. make sure Docker is running, then run these commands in your terminal:
+4. make sure Docker is running, then run these commands in your terminal:  
    `docker volume create beta-data`  
    `docker-compose build`  
    `docker-compose up`  
 
-5. Make migrations: you can access each terminal with the following commands:
+5. Make migrations: you can access each terminal with the following commands:  
    `docker exec -it <<container name here>> bash`  
    `> > > python manage.py makemigrations`  
    `> > > python manage.py migrate`  
 
 6. Turn the two poller containers off and on again in Docker.
 
-## Usage
+## Usage <a name="Usage"></a>
 
 1. Go to localhost:3000 in your browser to view the webpage. The menu is an offcanvas type. You will find it in the right upper corner of the screen.
 
@@ -53,7 +65,7 @@ To start using the application, you must have Docker and Python installed. We re
 
 5. In services, start by creating a technician, then you can create a service appointment. If the appointment gets cancelled, you can remove it by clicking the Cancel button. If the appointment is done, you can log it by clicking the Finish button. You can look up past service appointments by the auto's vin number on the search service history page.
 
-## Images / screenshots
+## Images / screenshots <a name="Images-/-screenshots"></a>
 
 - Landing page:
   ![Landing page](/images/landing_page.png)
@@ -64,7 +76,7 @@ To start using the application, you must have Docker and Python installed. We re
 - Sales forms:
   ![Sale forms](/images/sales_forms.png)
 
-- Sales list (sale records and sales reps):  
+- Sales list (sale records and sales reps):
   ![Sales lists](/images/sales_list.png)
 
 - Service forms:
@@ -82,7 +94,7 @@ To start using the application, you must have Docker and Python installed. We re
 - Here's what your docker container should look like:
   ![Docker image](/images/dockerimage.png)
 
-## Built with
+## Built with <a name="Built-with"></a>
 
 **Bootstrap** - Layout and formatting  
 **React (JSX)** - Frontend  
@@ -92,11 +104,11 @@ To start using the application, you must have Docker and Python installed. We re
 To run servers: Docker-compose.yml  
 Database: Postgres:14.2-bullseye
 
-## Domain Driven Design Diagram
+## Domain Driven Design Diagram <a name="Domain-Driven-Design-Diagram"></a>
 
 ![Domain Driven Design Diagram](/images/CarCardomaindiagram.png)
 
-## Helpful commands
+## Helpful commands <a name="Helpful-commands"></a>
 
 ### _Redo your database_
 
@@ -106,42 +118,18 @@ Database: Postgres:14.2-bullseye
 4. Run `docker volume create beta-data`
 5. Run `docker-compose up`
 
-> Thanks for reading! :smile:
+## Design details <a name="Design-details"></a>
 
-1. Urls and ports for each microservice
-    **Sales**:
-      - port 8090
-      urls:
-      - localhost:8090/api/salesreps
-      - localhost:8090/api/salescustomers
-      - localhost:8090/api/salerecords
-      - localhost:8080/api/technicians/
-      - localhost:8080/api/services/
-      - localhost:8080/api/services/<int:pk>/
+### _Sales_
 
-## Design details [TBD]
-
-1. Urls and ports for each microservice
-   **Sales**:
-
-   - port 8090
-     urls:
-   - localhost:8090/api/salesreps/
-   - localhost:8090/api/salescustomers/
-   - localhost:8090/api/salerecords/
-
-2. CRUD routes in Insomnia:
-   **Sales**:
-
-Action | Method | URL
------------- | ------------- | -------------
-Create sales rep | POST | http://localhost:8090/api/salesreps/
-List sales reps | GET | http://localhost:8090/api/salesreps/
-Create sales customer | POST | http://localhost:8090/api/salescustomers/
-List sales customers | GET | http://localhost:8090/api/salescustomers/
-Create sale record | POST | http://localhost:8090/api/salerecords/
-List sale records | GET | http://localhost:8090/api/salerecords/
-
+| Action                | Method | URL                                       |
+| --------------------- | ------ | ----------------------------------------- |
+| Create sales rep      | POST   | http://localhost:8090/api/salesreps/      |
+| List sales reps       | GET    | http://localhost:8090/api/salesreps/      |
+| Create sales customer | POST   | http://localhost:8090/api/salescustomers/ |
+| List sales customers  | GET    | http://localhost:8090/api/salescustomers/ |
+| Create sale record    | POST   | http://localhost:8090/api/salerecords/    |
+| List sale records     | GET    | http://localhost:8090/api/salerecords/    |
 
 1- _Create sales rep_:
 http://localhost:8090/api/salesreps/
@@ -236,34 +224,14 @@ POST:
 }
 ```
 
-Expected response:  
+Expected response:
+
 ```{
 "sales_price": "15000",
   "sales_customer": "Martha Stuart",
   "sales_rep_id": "3",
   "sales_automobile": "1C3CC5FB2AN120161",
   "sales_rep_name": "Mary Stuart"
-}
-```
-*Create sales customer*:
-localhost:8090/api/salescustomers/
-POST:  
-```{
-"name": "Maria Ruth",
-"address": "123 A Street Los Angeles CA 90017",
-"phone_number": "1234567890"
-}
-```
-
-Expected response:
-
-```
-{
-"sales_price": "15000",
-"sales_customer": "Martha Stuart",
-"sales_rep_id": "3",
-"sales_automobile": "1C3CC5FB2AN120161",
-"sales_rep_name": "Mary Stuart"
 }
 ```
 
@@ -292,21 +260,22 @@ GET request with expected response:
 }
 ```
 
+### _Services_
 
-**Services**
-Action | Method | URL
------------- | ------------- | -------------
-*List services* | GET | http://localhost:8080/api/services/
-*Create services* | POST | http://localhost:8080/api/services/
-*Get a specific service* | GET | http://localhost:8080/api/services/:id/
-*Update a specific service* | PUT | http://localhost:8080/api/services/:id/
-*Delete a service* | DELETE | http://localhost:8080/api/services/:id/
-*List technicians* | GET | http://localhost:8080/api/technicians/
-*Create technician* | POST | http://localhost:8080/api/technicians/
+| Action                      | Method | URL                                     |
+| --------------------------- | ------ | --------------------------------------- |
+| _List services_             | GET    | http://localhost:8080/api/services/     |
+| _Create services_           | POST   | http://localhost:8080/api/services/     |
+| _Get a specific service_    | GET    | http://localhost:8080/api/services/:id/ |
+| _Update a specific service_ | PUT    | http://localhost:8080/api/services/:id/ |
+| _Delete a service_          | DELETE | http://localhost:8080/api/services/:id/ |
+| _List technicians_          | GET    | http://localhost:8080/api/technicians/  |
+| _Create technician_         | POST   | http://localhost:8080/api/technicians/  |
 
-*Create technician*
-localhost:8080/api/technicians/  
-POST:  
+1 - _Create technician_:
+http://localhost:8080/api/technicians/
+POST:
+
 ```
 {
 	"name": "Kim",
@@ -314,7 +283,8 @@ POST:
 }
 ```
 
-Expected response:  
+Expected response:
+
 ```
 {
    "name": "kim",
@@ -322,8 +292,9 @@ Expected response:
 }
 ```
 
-*List technicians*
-GET expected response:  
+_List technicians_
+GET expected response:
+
 ```
 {
 	"technicians": [
@@ -333,9 +304,10 @@ GET expected response:
 		}
 ```
 
-*Create services*
-localhost:8080/api/services/  
-POST:  
+2 - _Create services_:
+http://localhost:8080/api/services/
+POST:
+
 ```
 {
 	"vin": "JSNGKJ2131",
@@ -346,7 +318,9 @@ POST:
 	"if_finished": false
 }
 ```
-Expected Response:  
+
+Expected Response:
+
 ```
 {
 	"vin": "JSNGKJ2131",
@@ -363,8 +337,9 @@ Expected Response:
 }
 ```
 
-*List services*
-GET expected response:  
+_List services_
+GET expected response:
+
 ```
 {
    "services": [
@@ -382,27 +357,30 @@ GET expected response:
       }
 ```
 
-*Delete a service*
-localhost:8080/api/services/<int:pk>/  
+_Delete a service_:
+http://localhost:8080/api/services/<int:pk>/
 DELETE:
-Expected response:  
+Expected response:
+
 ```
 {
 	"deleted": true
 }
 ```
 
+### _Inventory_
 
 **Manufacturers**
 Action | Method | URL
 ------------ | ------------- | -------------
-*List manufacturers* |	GET | http://localhost:8100/api/manufacturers/
-*Create a manufacturer* | POST | http://localhost:8100/api/manufacturers/
-*Get a specific manufacturer* | GET | http://localhost:8100/api/manufacturers/:id/
-*Update a specific manufacturer* | PUT | http://localhost:8100/api/manufacturers/:id/
-*Delete a specific manufacturer* | DELETE | http://localhost:8100/api/manufacturers/:id/
+_List manufacturers_ | GET | http://localhost:8100/api/manufacturers/
+_Create a manufacturer_ | POST | http://localhost:8100/api/manufacturers/
+_Get a specific manufacturer_ | GET | http://localhost:8100/api/manufacturers/:id/
+_Update a specific manufacturer_ | PUT | http://localhost:8100/api/manufacturers/:id/
+_Delete a specific manufacturer_ | DELETE | http://localhost:8100/api/manufacturers/:id/
 
 Creating and updating a manufacturer requires only the manufacturer's name.
+
 ```
 {
   "name": "Chrysler"
@@ -410,6 +388,7 @@ Creating and updating a manufacturer requires only the manufacturer's name.
 ```
 
 The return value of creating, getting, and updating a single manufacturer is its name, href, and id.
+
 ```
 {
   "href": "/api/manufacturers/1/",
@@ -419,6 +398,7 @@ The return value of creating, getting, and updating a single manufacturer is its
 ```
 
 The list of manufacturers is a dictionary with the key "manufacturers" set to a list of manufacturers.
+
 ```
 {
   "manufacturers": [
@@ -431,17 +411,17 @@ The list of manufacturers is a dictionary with the key "manufacturers" set to a 
 }
 ```
 
-
 **Vehicle models**
 Action | Method | URL
 ------------ | ------------- | -------------
-*List vehicle models* | GET |http://localhost:8100/api/models/
-*Create a vehicle model* | POST |http://localhost:8100/api/models/
-*Get a specific vehicle model* | GET | http://localhost:8100/api/models/:id/
-*Update a specific vehicle model* | PUT | http://localhost:8100/api/models/:id/
-*Delete a specific vehicle model* | DELETE | http://localhost:8100/api/models/:id/
+_List vehicle models_ | GET |http://localhost:8100/api/models/
+_Create a vehicle model_ | POST |http://localhost:8100/api/models/
+_Get a specific vehicle model_ | GET | http://localhost:8100/api/models/:id/
+_Update a specific vehicle model_ | PUT | http://localhost:8100/api/models/:id/
+_Delete a specific vehicle model_ | DELETE | http://localhost:8100/api/models/:id/
 
 Creating and updating a vehicle model requires the model name, a URL of an image, and the id of the manufacturer.
+
 ```
 {
   "name": "Sebring",
@@ -451,6 +431,7 @@ Creating and updating a vehicle model requires the model name, a URL of an image
 ```
 
 Updating a vehicle model can take the name and/or the picture URL.
+
 ```
 {
   "name": "Sebring",
@@ -459,6 +440,7 @@ Updating a vehicle model can take the name and/or the picture URL.
 ```
 
 Getting the detail of a vehicle model, or the return value from creating or updating a vehicle model, returns the model's information and the manufacturer's information.
+
 ```
 {
   "href": "/api/models/1/",
@@ -474,6 +456,7 @@ Getting the detail of a vehicle model, or the return value from creating or upda
 ```
 
 Getting a list of vehicle models returns a list of the detail information with the key "models".
+
 ```
 {
   "models": [
@@ -491,16 +474,18 @@ Getting a list of vehicle models returns a list of the detail information with t
   ]
 }
 ```
+
 **Automobiles**
 Action | Method | URL
 ------------ | ------------- | -------------
-*List automobiles* | GET | http://localhost:8100/api/automobiles/
-*Create an automobile* | POST | http://localhost:8100/api/automobiles/
-*Get a specific automobile* | GET | http://localhost:8100/api/automobiles/:vin/
-*Update a specific automobile* | PUT | http://localhost:8100/api/automobiles/:vin/
-*Delete a specific automobile* | DELETE | http://localhost:8100/api/automobiles/:vin/
+_List automobiles_ | GET | http://localhost:8100/api/automobiles/
+_Create an automobile_ | POST | http://localhost:8100/api/automobiles/
+_Get a specific automobile_ | GET | http://localhost:8100/api/automobiles/:vin/
+_Update a specific automobile_ | PUT | http://localhost:8100/api/automobiles/:vin/
+_Delete a specific automobile_ | DELETE | http://localhost:8100/api/automobiles/:vin/
 
 You can create an automobile with the below:
+
 ```
 {
   "color": "red",
@@ -512,6 +497,7 @@ You can create an automobile with the below:
 
 To get the details of a car, use the VIN:
 http://localhost:8100/api/automobiles/1C3CC5FB2AN120174/
+
 ```
 {
   "href": "/api/automobiles/1C3CC5FB2AN120174/",
@@ -534,6 +520,7 @@ http://localhost:8100/api/automobiles/1C3CC5FB2AN120174/
 ```
 
 To update the color and/or year:
+
 ```
 {
   "color": "red",
@@ -542,6 +529,7 @@ To update the color and/or year:
 ```
 
 Getting a list of automobiles returns a dictionary with the key "autos" set to a list of automobile information:
+
 ```
 {
   "autos": [
@@ -567,39 +555,4 @@ Getting a list of automobiles returns a dictionary with the key "autos" set to a
 }
 ```
 
-Expected response:
-
-```
-{
-"sales_price": "15000",
-"sales_customer": "Martha Stuart",
-"sales_rep_id": "3",
-"sales_automobile": "1C3CC5FB2AN120161",
-"sales_rep_name": "Mary Stuart"
-}
-```
-
-_List sale records_:
-http://localhost:8090/api/salerecords/
-GET request with expected response:
-
-```
-{
-	"sale_records": [
-		{
-			"sales_price": 10000,
-			"sales_customer": "Babe Ruth",
-			"sales_rep_id": "2",
-			"sales_automobile": "1C3CC5FB2AN120174",
-			"sales_rep_name": "Bob Ross"
-		},
-		{
-			"sales_price": 15000,
-			"sales_customer": "Martha Stuart",
-			"sales_rep_id": "3",
-			"sales_automobile": "1C3CC5FB2AN120161",
-			"sales_rep_name": "Mary Stuart"
-		}
-	]
-}
-```
+> Thanks for reading! :smile:
