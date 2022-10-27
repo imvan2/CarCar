@@ -129,13 +129,6 @@ def api_detail_service(request, pk):
     else:
         content = json.loads(request.body)
         
-        # try:
-        #     number = content["technician"]
-        #     tech = Technician.objects.get(name=number)
-        #     content["tech_name"] = tech
-        # except:
-        #     return JsonResponse({"message": "Invalid Technician ID"}, status=400)
-        
         ServiceAppointment.objects.filter(id=pk).update(**content)
         service = ServiceAppointment.objects.get(id=pk)
         return JsonResponse(

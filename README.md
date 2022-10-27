@@ -120,3 +120,127 @@ Database: Postgres:14.2-bullseye
 5. Run `docker-compose up`
 
 > Thanks for reading! :smile:
+
+1. Urls and ports for each microservice
+    **Sales**:
+      - port 8090
+      urls:
+      - localhost:8090/api/salesreps
+      - localhost:8090/api/salescustomers
+      - localhost:8090/api/salerecords
+      - localhost:8080/api/technicians/
+      - localhost:8080/api/services/
+      - localhost:8080/api/services/<int:pk>/
+
+2. CRUD routes in Insomnia:
+   POST sample data
+   expected response data for each route
+    **Sales**:
+    *Create sale record*:
+    http://localhost:8090/api/salerecords/
+    POST:
+    ```{
+  "sales_price": "15000",
+  "sales_customer": "456790123",
+  "sales_rep": "3",
+  "sales_automobile": "1C3CC5FB2AN120161"
+}```
+  Expected response:
+  ```{
+  "sales_price": "15000",
+  "sales_customer": "Martha Stuart",
+  "sales_rep_id": "3",
+  "sales_automobile": "1C3CC5FB2AN120161",
+  "sales_rep_name": "Mary Stuart"
+}```
+  *Create sales customer*:
+  http://localhost:8090/api/salescustomers/
+  POST:
+  ```{
+  "name": "Maria Ruth",
+  "address": "123 A Street Los Angeles CA 90017",
+  "phone_number": "1234567890"
+}```
+Expected response:
+
+**Services**
+*Create technician*
+http://localhost:8080/api/technicians/
+POST:
+```{
+	"name": "Kim",
+	"employee_number": "43515"
+}```  
+Expected response:
+```{
+   "name": "kim",
+   "employee_number": 43515
+}```
+
+*List technicians*
+GET expected response:
+```{
+	"technicians": [
+		{
+			"name": "Kim",
+			"employee_number": 43515
+		}```
+
+*Create services*
+POST:
+```{
+	"vin": "JSNGKJ2131",
+	"owner": "Fred K.",
+	"appointment_time": "2022-05-11",
+	"technician": "84655",
+	"service_reason": "oil change",
+	"if_finished": false
+}```
+Expected Response:
+```{
+	"vin": "JSNGKJ2131",
+	"owner": "Fred K.",
+	"appointment_time": "2022-05-11",
+	"service_reason": "oil change",
+	"if_finished": false,
+	"id": 10,
+	"is_vip": true,
+	"technician": {
+		"name": "Van",
+		"number": 84655
+	}
+}```
+
+
+*List services*
+GET expected response:
+```{
+   "services": [
+      {
+         "vin": "JSNGKJ2131",
+         "owner": "Fred K.",
+         "appointment_time": "2022-05-11T10:00:00+00:00",
+         "service_reason": "il change",
+         "if_finished": false,
+         "id": 10,
+         "is_vip": true,
+         "technician": {
+            "name": "Van"
+         }
+      }```
+
+HTTP Methods | Expected Responses
+------------ | -------------
+**Services**
+*Create technician*
+http://localhost:8080/api/technicians/
+POST:
+```{
+	"name": "Kim",
+	"employee_number": "43515"
+}```  
+Expected response:
+ | ```{
+   "name": "kim",
+   "employee_number": 43515
+}```
