@@ -12,12 +12,12 @@
 9. [Design details](#Design-details)
 
 
-## Team
+## Team <a name="Team"></a>
 
 - Van Tu - Service microservice
 - Kim Geraghty - Sales microservice
 
-## Features
+## Features <a name="Features"></a>
 
 CarCar is an application for managing an automobile dealership. It allows the user to enter and save data relevant to their inventory, their sales, and their service center.
 
@@ -29,7 +29,7 @@ The **sales** microservice can be used to keep track of sales reps, sales custom
 
 The **service** microservice can be used to keep track of technicians, VIP customers (who purchased their car from the dealership), and booked, cancelled or finished service appointments.
 
-## Get started / installation
+## Get started / installation <a name="Get-started-/-installation"></a>
 
 To start using the application, you must have Docker and Python installed. We recommend a computer with 16Gb of RAM or more. You will need a GitLab account to access the repo.
 
@@ -53,7 +53,7 @@ To start using the application, you must have Docker and Python installed. We re
 
 6. Turn the two poller containers off and on again in Docker.
 
-## Usage
+## Usage <a name="Usage"></a>
 
 1. Go to localhost:3000 in your browser to view the webpage. The menu is an offcanvas type. You will find it in the right upper corner of the screen.
 
@@ -65,7 +65,7 @@ To start using the application, you must have Docker and Python installed. We re
 
 5. In services, start by creating a technician, then you can create a service appointment. If the appointment gets cancelled, you can remove it by clicking the Cancel button. If the appointment is done, you can log it by clicking the Finish button. You can look up past service appointments by the auto's vin number on the search service history page.
 
-## Images / screenshots
+## Images / screenshots <a name="Images-/-screenshots"></a>
 
 - Landing page:
   ![Landing page](/images/landing_page.png)
@@ -94,7 +94,7 @@ To start using the application, you must have Docker and Python installed. We re
 - Here's what your docker container should look like:
   ![Docker image](/images/dockerimage.png)
 
-## Built with
+## Built with <a name="Built-with"></a>
 
 **Bootstrap** - Layout and formatting  
 **React (JSX)** - Frontend  
@@ -104,11 +104,11 @@ To start using the application, you must have Docker and Python installed. We re
 To run servers: Docker-compose.yml  
 Database: Postgres:14.2-bullseye
 
-## Domain Driven Design Diagram
+## Domain Driven Design Diagram <a name="Domain-Driven-Design-Diagram"></a>
 
 ![Domain Driven Design Diagram](/images/CarCardomaindiagram.png)
 
-## Helpful commands
+## Helpful commands <a name="Helpful-commands"></a>
 
 ### _Redo your database_
 
@@ -118,7 +118,7 @@ Database: Postgres:14.2-bullseye
 4. Run `docker volume create beta-data`
 5. Run `docker-compose up`
 
-## Design details
+## Design details <a name="Design-details"></a>
 
 ### _Sales_
 
