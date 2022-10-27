@@ -78,7 +78,7 @@ To start using the application, you must have Docker and Python installed. We re
   ![Sale forms](/images/sales_forms.png)
 
 - Sales list (sale records and sales reps):
-  ![Sales lists](/images/)
+  ![Sales lists](/images/sales_list.png)
 
 - Service forms:
   ![Service forms](/images/service_forms.png)
@@ -91,6 +91,9 @@ To start using the application, you must have Docker and Python installed. We re
 
 - Inventory list(manufacturers, models, automobiles):
   ![Inventory lists](/images/inventory_lists.png)
+
+- Here's what your docker container should look like:
+  ![Docker image](/images/dockerimage.png)
 
 ## Built with
 
