@@ -248,3 +248,27 @@ Expected response:
 	"deleted": true
 }
 ```
+
+**Manufacturers**
+*Create a manufacturer*
+http://localhost:8100/api/manufacturers/
+POST:
+```
+{
+  "name": "Chrysler"
+}
+```
+
+*List manufacturers*
+http://localhost:8100/api/manufacturers/
+GET expected response:
+```
+{
+	"manufacturers": [
+		{
+			"href": "/api/manufacturers/1/",
+			"id": 1,
+			"name": "Chrysler"
+		}
+```
+
