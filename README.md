@@ -108,9 +108,9 @@ Database: Postgres:14.2-bullseye
 
 > Thanks for reading! :smile:
 
-## Design details [TBD]
+## Design details
 
-### _Sales_:
+### _Sales_
 
 | Action                | Method | URL                                       |
 | --------------------- | ------ | ----------------------------------------- |
