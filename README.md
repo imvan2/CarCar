@@ -335,6 +335,17 @@ Expected response:
 	"deleted": true
 }
 ```
+Action | Method | URL
+------------ | ------------- | -------------
+*List services* | GET | http://localhost:8080/api/services/
+*Create services* | POST | http://localhost:8080/api/services/
+*Get a specific service* | GET | http://localhost:8080/api/services/:id/
+*Update a specific service* | PUT | http://localhost:8080/api/services/:id/
+*Delete a service* | DELETE | http://localhost:8080/api/services/:id/
+*List technicians* | GET | http://localhost:8080/api/technicians/
+*Create technician* | POST | http://localhost:8080/api/technicians/
+
+
 
 **Manufacturers**
 *Create a manufacturer*
@@ -358,6 +369,49 @@ GET expected response:
 			"name": "Chrysler"
 		}
 ```
+*Delete a specific manufacturer*
+http://localhost:8100/api/manufacturers/<int:pk>
+DELETE expected response:
+```
+
+```
+
+*Update a specific manufacturer*
+http://localhost:8100/api/manufacturers/<int:pk>
+```
+{
+  "href": "/api/manufacturers/1/",
+  "id": 1,
+  "name": "Chrysler"
+}
+```
+
+*Get a specific manufacturer*
+http://localhost:8100/api/manufacturers/<int:pk>
+```
+{
+  "href": "/api/manufacturers/1/",
+  "id": 1,
+  "name": "Chrysler"
+}
+```
+
+Action | Method | URL
+------------ | ------------- | -------------
+*List manufacturers* |	GET | http://localhost:8100/api/manufacturers/
+*Create a manufacturer* | POST | http://localhost:8100/api/manufacturers/
+*Get a specific manufacturer* | GET | http://localhost:8100/api/manufacturers/:id/
+*Update a specific manufacturer* | PUT | http://localhost:8100/api/manufacturers/:id/
+*Delete a specific manufacturer* | DELETE | http://localhost:8100/api/manufacturers/:id/
+
+**Vehicles**
+Action | Method | URL
+------------ | ------------- | -------------
+*List vehicle models* | GET |http://localhost:8100/api/models/
+*Create a vehicle model* | POST |http://localhost:8100/api/models/
+*Get a specific vehicle model* | GET | http://localhost:8100/api/models/:id/
+*Update a specific vehicle model* | PUT | http://localhost:8100/api/models/:id/
+*Delete a specific vehicle model* | DELETE | http://localhost:8100/api/models/:id/
 
 Expected response:
 
