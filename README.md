@@ -133,52 +133,52 @@ Database: Postgres:14.2-bullseye
       - localhost:8080/api/services/<int:pk>/
 
 2. CRUD routes in Insomnia:
-   POST sample data
-   expected response data for each route
-    **Sales**:
-    *Create sale record*:
-    http://localhost:8090/api/salerecords/
-    POST:
-    ```{
-  "sales_price": "15000",
-  "sales_customer": "456790123",
-  "sales_rep": "3",
-  "sales_automobile": "1C3CC5FB2AN120161"
+POST sample data
+expected response data for each route  
+**Sales**:  
+*Create sale record*:
+http://localhost:8090/api/salerecords/
+POST:  
+```{
+"sales_price": "15000",
+"sales_customer": "456790123",
+"sales_rep": "3",
+"sales_automobile": "1C3CC5FB2AN120161"
 }```
-  Expected response:
-  ```{
-  "sales_price": "15000",
+Expected response:  
+```{
+"sales_price": "15000",
   "sales_customer": "Martha Stuart",
   "sales_rep_id": "3",
   "sales_automobile": "1C3CC5FB2AN120161",
   "sales_rep_name": "Mary Stuart"
 }```
-  *Create sales customer*:
-  http://localhost:8090/api/salescustomers/
-  POST:
-  ```{
-  "name": "Maria Ruth",
-  "address": "123 A Street Los Angeles CA 90017",
-  "phone_number": "1234567890"
+*Create sales customer*:
+http://localhost:8090/api/salescustomers/
+POST:  
+```{
+"name": "Maria Ruth",
+"address": "123 A Street Los Angeles CA 90017",
+"phone_number": "1234567890"
 }```
-Expected response:
+Expected response:  
 
 **Services**
 *Create technician*
 http://localhost:8080/api/technicians/
-POST:
+POST:  
 ```{
 	"name": "Kim",
 	"employee_number": "43515"
 }```  
-Expected response:
+Expected response:  
 ```{
    "name": "kim",
    "employee_number": 43515
 }```
 
 *List technicians*
-GET expected response:
+GET expected response:  
 ```{
 	"technicians": [
 		{
@@ -187,7 +187,8 @@ GET expected response:
 		}```
 
 *Create services*
-POST:
+http://localhost:8080/api/services/
+POST:  
 ```{
 	"vin": "JSNGKJ2131",
 	"owner": "Fred K.",
@@ -196,7 +197,7 @@ POST:
 	"service_reason": "oil change",
 	"if_finished": false
 }```
-Expected Response:
+Expected Response:  
 ```{
 	"vin": "JSNGKJ2131",
 	"owner": "Fred K.",
@@ -213,7 +214,7 @@ Expected Response:
 
 
 *List services*
-GET expected response:
+GET expected response:  
 ```{
    "services": [
       {
@@ -229,18 +230,10 @@ GET expected response:
          }
       }```
 
-HTTP Methods | Expected Responses
------------- | -------------
-**Services**
-*Create technician*
-http://localhost:8080/api/technicians/
-POST:
+*Delete a service*
+http://localhost:8080/api/services/<int:pk>/
+DELETE:
+Expected response:  
 ```{
-	"name": "Kim",
-	"employee_number": "43515"
-}```  
-Expected response:
- | ```{
-   "name": "kim",
-   "employee_number": 43515
+	"deleted": true
 }```
