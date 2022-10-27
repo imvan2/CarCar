@@ -1,10 +1,15 @@
 # CarCar :red_car:
 
 # Table of Contents
-1. [Example](#example)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+1. [Team](#Team)
+2. [Features](#Features)
+3. [Get started / installation](#Get-started-/-installation)
+4. [Usage](#Usage)
+5. [Images / screenshots](#Images-/-screenshots)
+6. [Built with](#Built-with)
+7. [Domain Driven Design Diagram](#Domain-Driven-Design-Diagram)
+8. [Helpful commands](#Helpful-commands)
+9. [Design details](#Design-details)
 
 
 ## Team
