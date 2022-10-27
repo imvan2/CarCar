@@ -141,6 +141,16 @@ POST:
 2. CRUD routes in Insomnia:
    **Sales**:
 
+Action | Method | URL
+------------ | ------------- | -------------
+Create sales rep | POST | http://localhost:8090/api/salesreps/
+List sales reps | GET | http://localhost:8090/api/salesreps/
+Create sales customer | POST | http://localhost:8090/api/salescustomers/
+List sales customers | GET | http://localhost:8090/api/salescustomers/
+Create sale record | POST | http://localhost:8090/api/salerecords/
+List sale records | GET | http://localhost:8090/api/salerecords/
+
+
 1- _Create sales rep_:
 http://localhost:8090/api/salesreps/
 POST:
@@ -252,20 +262,69 @@ POST:
 "phone_number": "1234567890"
 }
 ```
-Expected response:  
+
+Expected response:
+
+```
+{
+"sales_price": "15000",
+"sales_customer": "Martha Stuart",
+"sales_rep_id": "3",
+"sales_automobile": "1C3CC5FB2AN120161",
+"sales_rep_name": "Mary Stuart"
+}
+```
+
+_List sale records_:
+http://localhost:8090/api/salerecords/
+GET request with expected response:
+
+```
+{
+	"sale_records": [
+		{
+			"sales_price": 10000,
+			"sales_customer": "Babe Ruth",
+			"sales_rep_id": "2",
+			"sales_automobile": "1C3CC5FB2AN120174",
+			"sales_rep_name": "Bob Ross"
+		},
+		{
+			"sales_price": 15000,
+			"sales_customer": "Martha Stuart",
+			"sales_rep_id": "3",
+			"sales_automobile": "1C3CC5FB2AN120161",
+			"sales_rep_name": "Mary Stuart"
+		}
+	]
+}
+```
+
 
 **Services**
+Action | Method | URL
+------------ | ------------- | -------------
+*List services* | GET | http://localhost:8080/api/services/
+*Create services* | POST | http://localhost:8080/api/services/
+*Get a specific service* | GET | http://localhost:8080/api/services/:id/
+*Update a specific service* | PUT | http://localhost:8080/api/services/:id/
+*Delete a service* | DELETE | http://localhost:8080/api/services/:id/
+*List technicians* | GET | http://localhost:8080/api/technicians/
+*Create technician* | POST | http://localhost:8080/api/technicians/
+
 *Create technician*
 localhost:8080/api/technicians/  
 POST:  
-```{
+```
+{
 	"name": "Kim",
 	"employee_number": "43515"
 }
 ```
 
 Expected response:  
-```{
+```
+{
    "name": "kim",
    "employee_number": 43515
 }
@@ -273,7 +332,8 @@ Expected response:
 
 *List technicians*
 GET expected response:  
-```{
+```
+{
 	"technicians": [
 		{
 			"name": "Kim",
@@ -284,7 +344,8 @@ GET expected response:
 *Create services*
 localhost:8080/api/services/  
 POST:  
-```{
+```
+{
 	"vin": "JSNGKJ2131",
 	"owner": "Fred K.",
 	"appointment_time": "2022-05-11",
@@ -294,7 +355,8 @@ POST:
 }
 ```
 Expected Response:  
-```{
+```
+{
 	"vin": "JSNGKJ2131",
 	"owner": "Fred K.",
 	"appointment_time": "2022-05-11",
@@ -311,7 +373,8 @@ Expected Response:
 
 *List services*
 GET expected response:  
-```{
+```
+{
    "services": [
       {
          "vin": "JSNGKJ2131",
@@ -331,71 +394,14 @@ GET expected response:
 localhost:8080/api/services/<int:pk>/  
 DELETE:
 Expected response:  
-```{
+```
+{
 	"deleted": true
 }
 ```
-Action | Method | URL
------------- | ------------- | -------------
-*List services* | GET | http://localhost:8080/api/services/
-*Create services* | POST | http://localhost:8080/api/services/
-*Get a specific service* | GET | http://localhost:8080/api/services/:id/
-*Update a specific service* | PUT | http://localhost:8080/api/services/:id/
-*Delete a service* | DELETE | http://localhost:8080/api/services/:id/
-*List technicians* | GET | http://localhost:8080/api/technicians/
-*Create technician* | POST | http://localhost:8080/api/technicians/
-
 
 
 **Manufacturers**
-*Create a manufacturer*
-http://localhost:8100/api/manufacturers/
-POST:
-```
-{
-  "name": "Chrysler"
-}
-```
-
-*List manufacturers*
-http://localhost:8100/api/manufacturers/
-GET expected response:
-```
-{
-	"manufacturers": [
-		{
-			"href": "/api/manufacturers/1/",
-			"id": 1,
-			"name": "Chrysler"
-		}
-```
-*Delete a specific manufacturer*
-http://localhost:8100/api/manufacturers/<int:pk>
-DELETE expected response:
-```
-
-```
-
-*Update a specific manufacturer*
-http://localhost:8100/api/manufacturers/<int:pk>
-```
-{
-  "href": "/api/manufacturers/1/",
-  "id": 1,
-  "name": "Chrysler"
-}
-```
-
-*Get a specific manufacturer*
-http://localhost:8100/api/manufacturers/<int:pk>
-```
-{
-  "href": "/api/manufacturers/1/",
-  "id": 1,
-  "name": "Chrysler"
-}
-```
-
 Action | Method | URL
 ------------ | ------------- | -------------
 *List manufacturers* |	GET | http://localhost:8100/api/manufacturers/
@@ -404,7 +410,37 @@ Action | Method | URL
 *Update a specific manufacturer* | PUT | http://localhost:8100/api/manufacturers/:id/
 *Delete a specific manufacturer* | DELETE | http://localhost:8100/api/manufacturers/:id/
 
-**Vehicles**
+Creating and updating a manufacturer requires only the manufacturer's name.
+```
+{
+  "name": "Chrysler"
+}
+```
+
+The return value of creating, getting, and updating a single manufacturer is its name, href, and id.
+```
+{
+  "href": "/api/manufacturers/1/",
+  "id": 1,
+  "name": "Chrysler"
+}
+```
+
+The list of manufacturers is a dictionary with the key "manufacturers" set to a list of manufacturers.
+```
+{
+  "manufacturers": [
+    {
+      "href": "/api/manufacturers/1/",
+      "id": 1,
+      "name": "Daimler-Chrysler"
+    }
+  ]
+}
+```
+
+
+**Vehicle models**
 Action | Method | URL
 ------------ | ------------- | -------------
 *List vehicle models* | GET |http://localhost:8100/api/models/
@@ -412,6 +448,132 @@ Action | Method | URL
 *Get a specific vehicle model* | GET | http://localhost:8100/api/models/:id/
 *Update a specific vehicle model* | PUT | http://localhost:8100/api/models/:id/
 *Delete a specific vehicle model* | DELETE | http://localhost:8100/api/models/:id/
+
+Creating and updating a vehicle model requires the model name, a URL of an image, and the id of the manufacturer.
+```
+{
+  "name": "Sebring",
+  "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+  "manufacturer_id": 1
+}
+```
+
+Updating a vehicle model can take the name and/or the picture URL.
+```
+{
+  "name": "Sebring",
+  "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg"
+}
+```
+
+Getting the detail of a vehicle model, or the return value from creating or updating a vehicle model, returns the model's information and the manufacturer's information.
+```
+{
+  "href": "/api/models/1/",
+  "id": 1,
+  "name": "Sebring",
+  "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+  "manufacturer": {
+    "href": "/api/manufacturers/1/",
+    "id": 1,
+    "name": "Daimler-Chrysler"
+  }
+}
+```
+
+Getting a list of vehicle models returns a list of the detail information with the key "models".
+```
+{
+  "models": [
+    {
+      "href": "/api/models/1/",
+      "id": 1,
+      "name": "Sebring",
+      "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+      "manufacturer": {
+        "href": "/api/manufacturers/1/",
+        "id": 1,
+        "name": "Daimler-Chrysler"
+      }
+    }
+  ]
+}
+```
+**Automobiles**
+Action | Method | URL
+------------ | ------------- | -------------
+*List automobiles* | GET | http://localhost:8100/api/automobiles/
+*Create an automobile* | POST | http://localhost:8100/api/automobiles/
+*Get a specific automobile* | GET | http://localhost:8100/api/automobiles/:vin/
+*Update a specific automobile* | PUT | http://localhost:8100/api/automobiles/:vin/
+*Delete a specific automobile* | DELETE | http://localhost:8100/api/automobiles/:vin/
+
+You can create an automobile with the below:
+```
+{
+  "color": "red",
+  "year": 2012,
+  "vin": "1C3CC5FB2AN120174",
+  "model_id": 1
+}
+```
+
+To get the details of a car, use the VIN:
+http://localhost:8100/api/automobiles/1C3CC5FB2AN120174/
+```
+{
+  "href": "/api/automobiles/1C3CC5FB2AN120174/",
+  "id": 1,
+  "color": "yellow",
+  "year": 2013,
+  "vin": "1C3CC5FB2AN120174",
+  "model": {
+    "href": "/api/models/1/",
+    "id": 1,
+    "name": "Sebring",
+    "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+    "manufacturer": {
+      "href": "/api/manufacturers/1/",
+      "id": 1,
+      "name": "Daimler-Chrysler"
+    }
+  }
+}
+```
+
+To update the color and/or year:
+```
+{
+  "color": "red",
+  "year": 2012
+}
+```
+
+Getting a list of automobiles returns a dictionary with the key "autos" set to a list of automobile information:
+```
+{
+  "autos": [
+    {
+      "href": "/api/automobiles/1C3CC5FB2AN120174/",
+      "id": 1,
+      "color": "yellow",
+      "year": 2013,
+      "vin": "1C3CC5FB2AN120174",
+      "model": {
+        "href": "/api/models/1/",
+        "id": 1,
+        "name": "Sebring",
+        "picture_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Chrysler_Sebring_front_20090302.jpg/320px-Chrysler_Sebring_front_20090302.jpg",
+        "manufacturer": {
+          "href": "/api/manufacturers/1/",
+          "id": 1,
+          "name": "Daimler-Chrysler"
+        }
+      }
+    }
+  ]
+}
+```
 
 Expected response:
 
