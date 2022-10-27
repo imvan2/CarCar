@@ -126,7 +126,8 @@ Database: Postgres:14.2-bullseye
 http://localhost:8090/api/salesreps/
 POST:
 
-```{
+```
+{
 	"name": "Kim Bassinger",
 	"employee_id": "301"
 }
@@ -134,7 +135,8 @@ POST:
 
 Expected response:
 
-```{
+```
+{
 	"name": "Kim Bassinger",
 	"employee_id": "301"
 }
@@ -144,7 +146,8 @@ _List sales reps_:
 http://localhost:8090/api/salesreps/
 GET request with expected response:
 
-```{
+```
+{
 	"sales_reps": [
 		{
 			"name": "Bob Ross",
@@ -162,7 +165,8 @@ GET request with expected response:
 http://localhost:8090/api/salescustomers/
 POST:
 
-```{
+```
+{
   "name": "Maria Ruth",
   "address": "123 A Street Los Angeles CA 90017",
   "phone_number": "0004567890"
@@ -171,7 +175,8 @@ POST:
 
 Expected response:
 
-```{
+```
+{
 	"name": "Maria Ruth",
 	"address": "123 A Street Los Angeles CA 90017",
 	"phone_number": "0004567890"
@@ -182,7 +187,8 @@ _List sales customers_
 http://localhost:8090/api/salescustomers/
 GET request with expected response:
 
-```{
+```
+{
 	"sales_customers": [
 		{
 			"name": "Babe Ruth",
@@ -200,7 +206,8 @@ GET request with expected response:
 http://localhost:8090/api/salerecords/
 POST:
 
-```{
+```
+{
 "sales_price": "15000",
 "sales_customer": "456790123",
 "sales_rep": "3",
@@ -210,7 +217,8 @@ POST:
 
 Expected response:
 
-```{
+```
+{
 "sales_price": "15000",
 "sales_customer": "Martha Stuart",
 "sales_rep_id": "3",
@@ -223,7 +231,8 @@ _List sale records_:
 http://localhost:8090/api/salerecords/
 GET request with expected response:
 
-```{
+```
+{
 	"sale_records": [
 		{
 			"sales_price": 10000,
