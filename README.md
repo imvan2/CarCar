@@ -41,6 +41,19 @@ To start using the application, you must have Docker and Python installed. We re
 
 6. Turn the two poller containers off and on again in Docker.
 
+## Helpful paths [TBD]
+
+1. Urls and ports for each microservice
+2. CRUD routes
+   Insomnia routes
+   POST sample data
+   expected response data for each route
+   Models named and described
+3. Identify Value Objects
+   why they're needed
+   how they're implemented
+4. Add to diagram: bounded contexts / highlight VO
+
 ## Usage
 
 1. Go to localhost:3000 in your browser to view the webpage. The menu is an offcanvas type. You will find it in the right upper corner of the screen.
