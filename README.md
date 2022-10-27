@@ -3,7 +3,7 @@
 ## Team
 
 - Van Tu - Service microservice
-- Kim Geraghty - Auto Sales
+- Kim Geraghty - Sales microservice
 
 ## Features
 
@@ -11,11 +11,11 @@ CarCar is an application for managing an automobile dealership. It allows the us
 
 The application runs with three separate microservices.
 
-The inventory can be used to keep track of manufacturers, models, and automobiles in stock.
+The **inventory** microservice can be used to keep track of manufacturers, models, and automobiles in stock.
 
-The sales can be used to keep track of sales reps, sales customers, and sale records (with a detailed view per sales rep.
+The **sales** microservice can be used to keep track of sales reps, sales customers, and sale records (with a detailed view per sales rep).
 
-The services can be used to keep track of technicians, VIP customers (who purchased their car from the dealership), and booked, cancelled or finished service appointments.
+The **service** microservice can be used to keep track of technicians, VIP customers (who purchased their car from the dealership), and booked, cancelled or finished service appointments.
 
 ## Get started / installation
 
@@ -23,21 +23,21 @@ To start using the application, you must have Docker and Python installed. We re
 
 1. Go to GitLab and fork the git repo. Once forked, copy the path to git clone.
 
-2. Go to your terminal and enter:  
-   ```git clone <<git clone path here>>```  
+2. Go to your terminal and enter:
+   `git clone <<git clone path here>>`
 
-3. Enter the new repo on your computer:  
-   ```cd <<repo name here>>```
+3. Enter the new repo on your computer:
+   `cd <<repo name here>>`
 
-4. make sure Docker is running, then run these commands in your terminal:  
-   ```docker volume create beta-data```  
-   ```docker-compose build```  
-   ```docker-compose up```  
+4. make sure Docker is running, then run these commands in your terminal:
+   `docker volume create beta-data`
+   `docker-compose build`
+   `docker-compose up`
 
-5. Make migrations: you can access each terminal with the following commands:  
-   ```docker exec -it <<container name here>> bash```  
-   ```> > > python manage.py makemigrations```  
-   ```> > > python manage.py migrate```  
+5. Make migrations: you can access each terminal with the following commands:
+   `docker exec -it <<container name here>> bash`
+   `> > > python manage.py makemigrations`
+   `> > > python manage.py migrate`
 
 6. Turn the two poller containers off and on again in Docker.
 
@@ -56,49 +56,51 @@ To start using the application, you must have Docker and Python installed. We re
 ## Images / screenshots
 
 - Landing page:
-![Landing page](/images/landing_page.png)
+  ![Landing page](/images/landing_page.png)
 
 - Offcanvas menu:
-![Offcanvas menu](/images/offcanvas_menu.png)
+  ![Offcanvas menu](/images/offcanvas_menu.png)
 
 - Sales forms:
-![Sale forms](/images/sales_forms.png)
+  ![Sale forms](/images/sales_forms.png)
 
 - Sales list (sale records and sales reps):
-![Sales lists](/images/)
+  ![Sales lists](/images/)
 
 - Service forms:
-![Service forms](/images/service_forms.png)
+  ![Service forms](/images/service_forms.png)
 
 - Service lists (services and service history)
-![Service lists](/images/service_lists.png)
+  ![Service lists](/images/service_lists.png)
 
 - Inventory forms:
-![Inventory forms](/images/inventory_forms.png)
+  ![Inventory forms](/images/inventory_forms.png)
 
 - Inventory list(manufacturers, models, automobiles):
-![Inventory lists](/images/inventory_lists.png)
+  ![Inventory lists](/images/inventory_lists.png)
 
 ## Built with
 
-**Bootstrap** - Layout and formatting  
-**React (JSX)** - Frontend  
-**Django (Python)** - Backend  
-**RESTful APIs** - Connecting frontend and backend  
+**Bootstrap** - Layout and formatting
+**React (JSX)** - Frontend
+**Django (Python)** - Backend
+**RESTful APIs** - Connecting frontend and backend
 
-To run servers: Docker-compose.yml  
-Database: Postgres:14.2-bullseye  
+To run servers: Docker-compose.yml
+Database: Postgres:14.2-bullseye
 
 ## Domain Driven Design Diagram
+
 ![Domain Driven Design Diagram](/images/CarCardomaindiagram.png)
 
 ## Helpful commands
 
-### *Redo your database*
+### _Redo your database_
+
 1. Stop all containers
-2. Run ```docker container prune -f```  
-3. Run ```docker volume rm beta-data```  
-4. Run ```docker volume create beta-data```  
-5. Run ```docker-compose up```  
+2. Run `docker container prune -f`
+3. Run `docker volume rm beta-data`
+4. Run `docker volume create beta-data`
+5. Run `docker-compose up`
 
 > Thanks for reading! :smile:

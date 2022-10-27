@@ -84,8 +84,8 @@ function SalesRepRecordList() {
       <table className='table table-striped'>
         <thead>
           <tr>
-            <th>Sale rep name</th>
-            <th>Sale customer name</th>
+            <th>Sales rep name</th>
+            <th>Sales customer name</th>
             <th>Auto VIN</th>
             <th>Sale price</th>
           </tr>
