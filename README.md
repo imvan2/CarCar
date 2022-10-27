@@ -77,7 +77,7 @@ To start using the application, you must have Docker and Python installed. We re
 - Sales forms:
   ![Sale forms](/images/sales_forms.png)
 
-- Sales list (sale records and sales reps):
+- Sales list (sale records and sales reps):  
   ![Sales lists](/images/sales_list.png)
 
 - Service forms:
@@ -97,12 +97,12 @@ To start using the application, you must have Docker and Python installed. We re
 
 ## Built with
 
-**Bootstrap** - Layout and formatting
-**React (JSX)** - Frontend
-**Django (Python)** - Backend
-**RESTful APIs** - Connecting frontend and backend
+**Bootstrap** - Layout and formatting  
+**React (JSX)** - Frontend  
+**Django (Python)** - Backend  
+**RESTful APIs** - Connecting frontend and backend  
 
-To run servers: Docker-compose.yml
+To run servers: Docker-compose.yml  
 Database: Postgres:14.2-bullseye
 
 ## Domain Driven Design Diagram
@@ -144,7 +144,9 @@ POST:
 "sales_customer": "456790123",
 "sales_rep": "3",
 "sales_automobile": "1C3CC5FB2AN120161"
-}```
+}
+```
+
 Expected response:  
 ```{
 "sales_price": "15000",
@@ -152,7 +154,8 @@ Expected response:
   "sales_rep_id": "3",
   "sales_automobile": "1C3CC5FB2AN120161",
   "sales_rep_name": "Mary Stuart"
-}```
+}
+```
 *Create sales customer*:
 http://localhost:8090/api/salescustomers/
 POST:  
@@ -160,7 +163,8 @@ POST:
 "name": "Maria Ruth",
 "address": "123 A Street Los Angeles CA 90017",
 "phone_number": "1234567890"
-}```
+}
+```
 Expected response:  
 
 **Services**
@@ -170,7 +174,8 @@ POST:
 ```{
 	"name": "Kim",
 	"employee_number": "43515"
-}```  
+}
+```  
 Expected response:  
 ```{
    "name": "kim",
