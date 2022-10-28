@@ -303,6 +303,8 @@ GET expected response:
 			"name": "Kim",
 			"employee_number": 43515
 		}
+  ]
+}
 ```
 
 2 - _Create services_:
@@ -343,19 +345,21 @@ GET expected response:
 
 ```
 {
-   "services": [
-      {
-         "vin": "JSNGKJ2131",
-         "owner": "Fred K.",
-         "appointment_time": "2022-05-11T10:00:00+00:00",
-         "service_reason": "il change",
-         "if_finished": false,
-         "id": 10,
-         "is_vip": true,
-         "technician": {
-            "name": "Van"
-         }
-      }
+  "services": [
+    {
+        "vin": "JSNGKJ2131",
+        "owner": "Fred K.",
+        "appointment_time": "2022-05-11T10:00:00+00:00",
+        "service_reason": "il change",
+        "if_finished": false,
+        "id": 10,
+        "is_vip": true,
+        "technician": {
+          "name": "Van"
+        }
+    }
+  ]
+}
 ```
 
 _Delete a service_:
