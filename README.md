@@ -217,17 +217,18 @@ POST:
 
 ```
 {
-"sales_price": "15000",
-"sales_customer": "456790123",
-"sales_rep": "3",
-"sales_automobile": "1C3CC5FB2AN120161"
+  "sales_price": "15000",
+  "sales_customer": "456790123",
+  "sales_rep": "3",
+  "sales_automobile": "1C3CC5FB2AN120161"
 }
 ```
 
 Expected response:
 
-```{
-"sales_price": "15000",
+```
+{
+  "sales_price": "15000",
   "sales_customer": "Martha Stuart",
   "sales_rep_id": "3",
   "sales_automobile": "1C3CC5FB2AN120161",
