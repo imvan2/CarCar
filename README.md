@@ -53,6 +53,8 @@ To start using the application, you must have Docker installed. We recommend a c
 
 6. Turn the two poller containers off and on again in Docker.
 
+7. Before checking localhost:3000, you will need to wait for React to finish compling. This may take a couple of minutes. You can check on the status in the React Docker container logs.
+
 ## Usage <a name="Usage"></a>
 
 1. Go to localhost:3000 in your browser to view the webpage. The menu is an offcanvas type. You will find it in the right upper corner of the screen.
