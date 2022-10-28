@@ -53,6 +53,8 @@ To start using the application, you must have Docker installed. We recommend a c
 
 6. Turn the two poller containers off and on again in Docker.
 
+7. Before checking localhost:3000, you will need to wait for React to finish compling. This may take a couple of minutes. You can check on the status in the React Docker container logs.
+
 ## Usage <a name="Usage"></a>
 
 1. Go to localhost:3000 in your browser to view the webpage. The menu is an offcanvas type. You will find it in the right upper corner of the screen.
@@ -217,17 +219,18 @@ POST:
 
 ```
 {
-"sales_price": "15000",
-"sales_customer": "456790123",
-"sales_rep": "3",
-"sales_automobile": "1C3CC5FB2AN120161"
+  "sales_price": "15000",
+  "sales_customer": "456790123",
+  "sales_rep": "3",
+  "sales_automobile": "1C3CC5FB2AN120161"
 }
 ```
 
 Expected response:
 
-```{
-"sales_price": "15000",
+```
+{
+  "sales_price": "15000",
   "sales_customer": "Martha Stuart",
   "sales_rep_id": "3",
   "sales_automobile": "1C3CC5FB2AN120161",
@@ -302,6 +305,8 @@ GET expected response:
 			"name": "Kim",
 			"employee_number": 43515
 		}
+  ]
+}
 ```
 
 2 - _Create services_:
@@ -342,19 +347,21 @@ GET expected response:
 
 ```
 {
-   "services": [
-      {
-         "vin": "JSNGKJ2131",
-         "owner": "Fred K.",
-         "appointment_time": "2022-05-11T10:00:00+00:00",
-         "service_reason": "il change",
-         "if_finished": false,
-         "id": 10,
-         "is_vip": true,
-         "technician": {
-            "name": "Van"
-         }
-      }
+  "services": [
+    {
+        "vin": "JSNGKJ2131",
+        "owner": "Fred K.",
+        "appointment_time": "2022-05-11T10:00:00+00:00",
+        "service_reason": "il change",
+        "if_finished": false,
+        "id": 10,
+        "is_vip": true,
+        "technician": {
+          "name": "Van"
+        }
+    }
+  ]
+}
 ```
 
 _Delete a service_:
